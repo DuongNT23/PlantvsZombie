@@ -44,7 +44,6 @@ public class LevelZombieSpawner : MonoBehaviour
             return null;
         }
         string jsonString = jsonFile.text;
-        Debug.Log(jsonString);
         LevelData readLevelData = JsonUtility.FromJson<LevelData>(jsonString);
         if (readLevelData == null)
         {
@@ -57,7 +56,7 @@ public class LevelZombieSpawner : MonoBehaviour
     void Start()
     {
         levelData = GetLevelData(pathToLevelFile);
-        Debug.Log(levelData.waves.Count);
+        Debug.Log($"Wave Count: {levelData.waves.Count}");
         Invoke("BeginSpawning",gracePeriod);
     }
 
@@ -75,6 +74,7 @@ public class LevelZombieSpawner : MonoBehaviour
 
     void StartNextWave()
     {
+        Debug.Log($"Attempting to start wave {currentWave}");
         if (currentWave == levelData.waves.Count)
         {
             Win();
@@ -120,7 +120,7 @@ public class LevelZombieSpawner : MonoBehaviour
         {
             CancelInvoke(nameof(CheckNextSpawn));
             StartNextWave();
-            Debug.Log("No Zombies Remaining, began next wave");
+            Debug.Log($"No Zombies Remaining, begin next wave.");
             return;
         }
 
@@ -130,6 +130,6 @@ public class LevelZombieSpawner : MonoBehaviour
 
     void Win()
     {
-
+        Debug.Log("You win!");
     }
 }
