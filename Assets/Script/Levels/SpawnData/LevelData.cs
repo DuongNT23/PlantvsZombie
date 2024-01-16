@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assets.Script.Levels.SpawnData
 {
+    [Serializable]
     public class LevelData
     {
-        public IEnumerable<WaveSpawnData> Waves { get; set; }
+        public List<WaveSpawnData> waves;
     }
 }

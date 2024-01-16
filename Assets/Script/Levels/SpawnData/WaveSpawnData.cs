@@ -9,7 +9,7 @@ namespace Assets.Script.Levels.SpawnData
     [System.Serializable]
     public class WaveSpawnData
     {
-        public IEnumerable<ZombieSpawnData> Zombies { get; set; }
-        public bool IsLargeWave { get; set; }
+        public List<ZombieSpawnData> zombies;
+        public bool isLargeWave;
     }
 }
