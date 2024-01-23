@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   speed: 0.8
+  _onPeaHitClip: {fileID: 8300000, guid: 0ae8b6763044bd34495f11df0d518b83, type: 3}
 --- !u!50 &-8573660910499539728
 Rigidbody2D:
   serializedVersion: 4

@@ -23,6 +23,10 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(AudioClip clip)
     {
+        if (clip == null)
+        {
+            return;
+        }
         _effectSource.PlayOneShot(clip);
     }
 }

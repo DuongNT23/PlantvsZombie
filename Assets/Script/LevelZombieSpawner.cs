@@ -14,6 +14,8 @@ public class LevelZombieSpawner : MonoBehaviour
     public Transform[] SpawnPoints;
     public GameObject Zombie;
 
+    [SerializeField] private AudioClip _firstWaveClip;
+
     /// <summary>
     /// How long until the first wave starts
     /// </summary>
@@ -69,12 +71,14 @@ public class LevelZombieSpawner : MonoBehaviour
     void BeginSpawning()
     {
         Debug.Log("The zombies are coming.");
+        SoundManager.Instance.PlaySound(_firstWaveClip);
         StartNextWave();
     }
 
     void StartNextWave()
     {
         Debug.Log($"Attempting to start wave {_currentWave}");
+        Debug.Log($"Wave count = {LevelData.waves.Count}");
         if (_currentWave == LevelData.waves.Count)
         {
             Win();
@@ -94,6 +98,7 @@ public class LevelZombieSpawner : MonoBehaviour
     private void SpawnZombies(List<ZombieSpawnData> zombies)
     {
         //TODO Create spawning behavior
+        Debug.Log(zombies.Count);
         foreach (var zombie in zombies)
         {
             int r = UnityEngine.Random.Range(0, SpawnPoints.Length);

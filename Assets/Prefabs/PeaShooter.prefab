@@ -138,6 +138,7 @@ MonoBehaviour:
   shootMask:
     serializedVersion: 2
     m_Bits: 128
+  _shootClip: {fileID: 8300000, guid: 430257ab8508dea4788dec22679966d8, type: 3}
 --- !u!114 &8786169896115373569
 MonoBehaviour:
   m_ObjectHideFlags: 0

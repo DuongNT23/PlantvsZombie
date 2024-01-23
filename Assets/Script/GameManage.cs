@@ -13,6 +13,8 @@ public class GameManage : MonoBehaviour
     public int suns;
     public TextMeshProUGUI sunText;
     public LayerMask sunMask;
+
+    [SerializeField] private AudioClip _sunCollectClip;
     public void BuyPlant(GameObject plant, Sprite sprite)
     {
         currentPlant = plant;
@@ -50,8 +52,10 @@ public class GameManage : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                
                 suns += 25;
                 Destroy(sunHit.collider.gameObject);
+                SoundManager.Instance.PlaySound(_sunCollectClip);
             }
         }
 

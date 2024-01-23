@@ -6,6 +6,8 @@ public class Sun : MonoBehaviour
 {
     public float dropTpYPos;
     private float speed = .15f;
+
+    [SerializeField] private AudioClip _sunCollectClip;
     // Start is called before the first frame update
     void Start()
     {

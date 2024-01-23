@@ -12,6 +12,8 @@ public class BasicShooter : MonoBehaviour
     public LayerMask shootMask;
     private GameObject target;
 
+    [SerializeField] private AudioClip _shootClip;
+
     private void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, range, shootMask);
@@ -42,5 +44,6 @@ public class BasicShooter : MonoBehaviour
         Invoke("ResetCooldown", cooldown);
 
         GameObject myBullet = Instantiate(bullet, shootOrigin.position, Quaternion.identity);
+        SoundManager.Instance.PlaySound(_shootClip);
     }
 }

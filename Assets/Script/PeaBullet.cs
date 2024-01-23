@@ -7,6 +7,8 @@ public class PeaBullet : MonoBehaviour
     public int damage;
     public float speed = .8f;
 
+    [SerializeField] private AudioClip _onPeaHitClip;
+
     private void Start()
     {
         //Destroy(gameObject,10);
@@ -20,6 +22,7 @@ public class PeaBullet : MonoBehaviour
     {
         if(other.TryGetComponent<Zombie>(out Zombie zombie)){
             zombie.Hit(damage);
+            SoundManager.Instance.PlaySound(_onPeaHitClip);
             Destroy(gameObject);
         }    
     }
