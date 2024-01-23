@@ -21,7 +21,7 @@ public class Zombie : MonoBehaviour
         damage = type.damage;
         range = type.range; 
         speed = type.speed;
-
+        eatCooldown = type.eatCooldown;
         GetComponent<SpriteRenderer>().sprite = type.sprite;
     }
     private void Update()

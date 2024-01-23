@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4325239852757689461, guid: 49f6af81f297e564c970668a1d414659, type: 3}
   shootOrigin: {fileID: 1255905286933724837}
-  cooldown: 2.5
+  cooldown: 1.425
   range: 10000
   shootMask:
     serializedVersion: 2
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5d40d4551f99140962ba28f7468211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 300
 --- !u!61 &3361364042202426691
 BoxCollider2D:
   m_ObjectHideFlags: 0

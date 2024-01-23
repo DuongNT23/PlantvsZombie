@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62af4ec34e2e611438fde77b80417765, type: 3}
   m_Name: Bucket
   m_EditorClassIdentifier: 
-  health: 20
-  damage: 1
+  health: 1281
+  damage: 100
   range: 0.5
   eatCooldown: 1
   speed: 0.006
