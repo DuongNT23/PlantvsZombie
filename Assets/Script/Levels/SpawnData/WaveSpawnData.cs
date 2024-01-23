@@ -11,5 +11,6 @@ namespace Assets.Script.Levels.SpawnData
     {
         public List<ZombieSpawnData> zombies;
         public bool isLargeWave;
+        public bool spreadEvenly;
     }
 }

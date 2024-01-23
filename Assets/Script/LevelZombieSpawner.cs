@@ -5,6 +5,7 @@ using Assets.Script.Levels;
 using Assets.Script.Levels.SpawnData;
 using JetBrains.Annotations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LevelZombieSpawner : MonoBehaviour
 {
@@ -15,6 +16,14 @@ public class LevelZombieSpawner : MonoBehaviour
     public GameObject Zombie;
 
     [SerializeField] private AudioClip _firstWaveClip;
+    [SerializeField] private List<ZombieType> _zombieTypes;
+
+    private Dictionary<string, int> _zombieIndexes = new Dictionary<string, int>()
+    {
+        {"normal",0},
+        {"conehead",1},
+        {"buckethead",2}
+    };
 
     /// <summary>
     /// How long until the first wave starts
@@ -89,25 +98,82 @@ public class LevelZombieSpawner : MonoBehaviour
         {
             //TODO large wave stuffs
         }
-        SpawnZombies(waveData.zombies);
+        SpawnZombies(waveData);
         _waveTimer = WaveGracePeriod;
         _currentWave++;
         InvokeRepeating("CheckNextSpawn",WaveGracePeriod,1);
     }
 
-    private void SpawnZombies(List<ZombieSpawnData> zombies)
+    private void SpawnZombies(WaveSpawnData waveSpawnData)
     {
-        //TODO Create spawning behavior
-        Debug.Log(zombies.Count);
+        var zombies = waveSpawnData.zombies;
+        if (waveSpawnData.spreadEvenly)
+        {
+            SpawnZombiesEvenly(zombies);
+        }
+        else
+        {
+            SpawnZombiesAnywhere(zombies);
+        }
+        //foreach (var zombie in zombies)
+        //{
+        //    int r = UnityEngine.Random.Range(0, SpawnPoints.Length);
+        //    for (int i = 0; i < zombie.amount; i++)
+        //    {
+        //        GameObject myZombie = Instantiate(Zombie, SpawnPoints[r].position, Quaternion.identity);
+        //    }
+        //}
+        
+    }
+
+    private void SpawnZombiesEvenly(List<ZombieSpawnData> zombies)
+    {
+        List<int> spawnPositions = new List<int>() { 0, 1, 2, 3, 4 };
         foreach (var zombie in zombies)
         {
-            int r = UnityEngine.Random.Range(0, SpawnPoints.Length);
             for (int i = 0; i < zombie.amount; i++)
             {
-                GameObject myZombie = Instantiate(Zombie, SpawnPoints[r].position, Quaternion.identity);
+                if (spawnPositions.Count == 0)
+                {
+                    spawnPositions = new List<int>() { 0, 1, 2, 3, 4 };
+                }
+                var r = Random.Range(0, spawnPositions.Count);
+                var randomSpawnPos = spawnPositions[r];
+                spawnPositions.RemoveAt(r);
+                GameObject myZombie = Instantiate(Zombie, SpawnPoints[randomSpawnPos].position, Quaternion.identity);
+                if (TryGetType(zombie.type,out var type))
+                {
+                    myZombie.GetComponent<Zombie>().type = type;
+                }
             }
         }
-        
+    }
+
+    private bool TryGetType(string typeString, out ZombieType type)
+    {
+        if (_zombieIndexes.TryGetValue(typeString, out var index))
+        {
+            type = _zombieTypes[index];
+            return true;
+        }
+        type = null;
+        return false;
+    }
+
+    private void SpawnZombiesAnywhere(List<ZombieSpawnData> zombies)
+    {
+        foreach (var zombie in zombies)
+        {
+            for (int i = 0; i < zombie.amount; i++)
+            {
+                var r = Random.Range(0, SpawnPoints.Length);
+                GameObject myZombie = Instantiate(Zombie, SpawnPoints[r].position, Quaternion.identity);
+                if (TryGetType(zombie.type, out var type))
+                {
+                    myZombie.GetComponent<Zombie>().type = type;
+                }
+            }
+        }
     }
 
     private void CheckNextSpawn()

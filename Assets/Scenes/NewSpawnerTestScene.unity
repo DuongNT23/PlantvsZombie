@@ -4858,7 +4858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a87f0ca47add3242bb28c86702a5973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathToLevelFile: Levels/test_level
+  PathToLevelFile: Levels/level_1
   LevelData:
     waves: []
   SpawnPoints:
@@ -4869,7 +4869,11 @@ MonoBehaviour:
   - {fileID: 336164791}
   Zombie: {fileID: 3024110420658572066, guid: a28b47a88c772bd4d8ee35c7d23b41e1, type: 3}
   _firstWaveClip: {fileID: 8300000, guid: b8b4c0a624742504d843fd7c87231b9b, type: 3}
-  GracePeriod: 10
+  _zombieTypes:
+  - {fileID: 11400000, guid: aa64353d665bcae4c86c65cdb0850db7, type: 2}
+  - {fileID: 11400000, guid: 609e4778a562f6c42b4b6f6233563a59, type: 2}
+  - {fileID: 11400000, guid: ca41c5050d9087f46b91e9cd593c1d62, type: 2}
+  GracePeriod: 20
   WaveGracePeriod: 10
   MaximumWavePeriod: 30
 --- !u!1 &1149166390

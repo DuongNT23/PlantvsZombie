@@ -1,3 +1,5 @@
+using System;
+
 namespace Assets.Script.Levels.SpawnData
 {
     [System.Serializable]
@@ -10,6 +12,5 @@ namespace Assets.Script.Levels.SpawnData
         public string type;
         public int amount;
         public string row;
-        public bool spread;
     }
 }
