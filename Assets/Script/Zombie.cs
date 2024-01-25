@@ -15,6 +15,10 @@ public class Zombie : MonoBehaviour
     public Plant targetPlant;
     public ZombieType type;
 
+    private static readonly Color chilledColor = new Color(0.22f,0.42f,0.95f);
+
+    //Unique boolean for freezing/chilling
+    private bool isChilled = false;
     private void Start()
     {
         health = type.health;
@@ -47,7 +51,7 @@ public class Zombie : MonoBehaviour
             return;
         }
         canEat = false;
-        Invoke("ResetEatCooldown", eatCooldown);
+        Invoke("ResetEatCooldown", GetFinalEatCooldown());
 
         targetPlant.Hit(damage);
     }
@@ -60,7 +64,47 @@ public class Zombie : MonoBehaviour
     private void FixedUpdate()
     {
         if (!targetPlant)
-            transform.position -= new Vector3(speed, 0 ,0);
+            transform.position -= new Vector3(GetFinalSpeed(), 0 ,0);
+    }
+
+    private float GetFinalSpeed()
+    {
+        float finalSpeed = speed;
+        if (isChilled)
+        {
+            finalSpeed /= 2;
+        }
+        return finalSpeed;
+    }
+
+    private float GetFinalEatCooldown()
+    {
+        float finalEatCooldown = eatCooldown;
+        if (isChilled)
+        {
+            finalEatCooldown *= 2;
+        }
+        return finalEatCooldown;
+    }
+
+    public void Chill()
+    {
+        CancelInvoke(nameof(Unchill));
+        if (!isChilled)
+        {
+            isChilled = true;
+            GetComponent<SpriteRenderer>().color = chilledColor;
+        }
+        Invoke(nameof(Unchill),10);
+    }
+
+    public void Unchill()
+    {
+        if (isChilled)
+        {
+            isChilled = false;
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
     public void Hit(int damage)

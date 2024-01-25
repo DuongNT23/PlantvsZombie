@@ -139,8 +139,9 @@ public class LevelZombieSpawner : MonoBehaviour
                 }
                 var r = Random.Range(0, spawnPositions.Count);
                 var randomSpawnPos = spawnPositions[r];
+                var spawnPosition = GetSpawnPosition(SpawnPoints[randomSpawnPos].position);
                 spawnPositions.RemoveAt(r);
-                GameObject myZombie = Instantiate(Zombie, SpawnPoints[randomSpawnPos].position, Quaternion.identity);
+                GameObject myZombie = Instantiate(Zombie, spawnPosition, Quaternion.identity);
                 if (TryGetType(zombie.type,out var type))
                 {
                     myZombie.GetComponent<Zombie>().type = type;
@@ -148,6 +149,13 @@ public class LevelZombieSpawner : MonoBehaviour
             }
         }
     }
+
+    private Vector3 GetSpawnPosition(Vector3 spawnPoint)
+    {
+        var spawnPosition = new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z);
+        spawnPosition.x += Random.Range(-1, 1);
+        return spawnPosition;
+    } 
 
     private bool TryGetType(string typeString, out ZombieType type)
     {
@@ -167,7 +175,8 @@ public class LevelZombieSpawner : MonoBehaviour
             for (int i = 0; i < zombie.amount; i++)
             {
                 var r = Random.Range(0, SpawnPoints.Length);
-                GameObject myZombie = Instantiate(Zombie, SpawnPoints[r].position, Quaternion.identity);
+                var spawnPosition = GetSpawnPosition(SpawnPoints[r].position);
+                GameObject myZombie = Instantiate(Zombie, spawnPosition, Quaternion.identity);
                 if (TryGetType(zombie.type, out var type))
                 {
                     myZombie.GetComponent<Zombie>().type = type;

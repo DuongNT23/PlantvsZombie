@@ -7,7 +7,7 @@ public class PeaBullet : MonoBehaviour
     public int damage;
     public float speed = .8f;
 
-    [SerializeField] private AudioClip _onPeaHitClip;
+    [SerializeField] protected AudioClip _onPeaHitClip;
 
     private void Start()
     {
