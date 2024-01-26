@@ -6578,7 +6578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501934f34db3b8b42a7ea7b02f10853c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantSprite: {fileID: 21300000, guid: 046ff69795d4f5640953ae5ea66124e5, type: 3}
+  plantSprite: {fileID: 21300000, guid: b4a572aa4cb208b4587cbafc1580e2f3, type: 3}
   plantObject: {fileID: 7025129746123423348, guid: 60fbd2f906135bb45b52f10d1a441cdb, type: 3}
   price: 100
   icon: {fileID: 1872845967}

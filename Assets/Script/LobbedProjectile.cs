@@ -11,6 +11,7 @@ public class LobbedProjectile : MonoBehaviour, IProjectile
     public GameObject target;
     public Vector3 initialLocation;
     [SerializeField] private AudioClip _onHitClip;
+    private Vector3 targetPosition;
 
     private int frame = 0;
     private void Start()
@@ -34,18 +35,20 @@ public class LobbedProjectile : MonoBehaviour, IProjectile
 
     private bool TryHitTarget()
     {
+        bool hit = false;
         if (target == null)
         {
-            return false;
+            
         }
         else
         {
+            hit = true;
             var zombie = target.GetComponent<Zombie>();
             zombie.Hit(damage);
             SoundManager.Instance.PlaySound(_onHitClip);
         }
         Destroy(gameObject);
-        return true;
+        return hit;
     }
 
     public void Move()
@@ -56,7 +59,10 @@ public class LobbedProjectile : MonoBehaviour, IProjectile
             TryHitTarget();
             return;
         }
-        var targetPosition = target.transform.position;
+        if (target != null)
+        {
+            targetPosition = target.transform.position;
+        }
         var distanceToTarget = (targetPosition.x - initialLocation.x);
 
         var xValue = distanceToTarget / 2;
