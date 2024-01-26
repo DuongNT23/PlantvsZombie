@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Script.Interfaces;
 using UnityEngine;
 
-public class PeaBullet : MonoBehaviour
+public class PeaBullet : MonoBehaviour, IProjectile
 {
     public int damage;
     public float speed = .8f;
@@ -15,7 +17,7 @@ public class PeaBullet : MonoBehaviour
     }
     private void Update()
     {
-        transform.position += new Vector3(speed * Time.fixedDeltaTime, 0, 0);
+        Move();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,5 +27,10 @@ public class PeaBullet : MonoBehaviour
             SoundManager.Instance.PlaySound(_onPeaHitClip);
             Destroy(gameObject);
         }    
+    }
+
+    public void Move()
+    {
+        transform.position += new Vector3(speed * Time.fixedDeltaTime, 0, 0);
     }
 }
