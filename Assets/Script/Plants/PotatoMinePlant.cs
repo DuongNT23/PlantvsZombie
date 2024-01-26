@@ -39,8 +39,8 @@ namespace Assets.Script.Plants
 
         private void Spudow()
         {
-            var vectorA = new Vector3(1, 1, 0);
-            var vectorB = new Vector3(-1, -1, 0);
+            var vectorA = new Vector3(1, 0.2f, 0);
+            var vectorB = new Vector3(-1, -0.2f, 0);
             var position = gameObject.transform.position;
             var overlapArea = Physics2D.OverlapAreaAll(position + vectorA, position + vectorB);
             Debug.Log($"Potato Mine spotted {overlapArea.Length} objects.");
