@@ -144,5 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 9999
-  timeUntilEffectsApply: 3
+  timeUntilEffectsApply: 2
   explosionDamage: 1800

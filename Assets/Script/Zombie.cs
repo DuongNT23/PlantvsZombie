@@ -1,24 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Script.Zombies;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class Zombie : AbstractZombie
 {
-    private float speed;
-    private int health;
-    private int damage;
-    private float range;
-    public LayerMask plantMask;
-    private float eatCooldown;
-    private bool canEat = true;
-    public Plant targetPlant;
-    public ZombieType type;
-
-    private static readonly Color chilledColor = new Color(0.22f,0.42f,0.95f);
-
-    //Unique boolean for freezing/chilling
-    private bool isChilled = false;
     private void Start()
     {
         health = type.health;
@@ -65,46 +52,6 @@ public class Zombie : MonoBehaviour
     {
         if (!targetPlant)
             transform.position -= new Vector3(GetFinalSpeed(), 0 ,0);
-    }
-
-    private float GetFinalSpeed()
-    {
-        float finalSpeed = speed;
-        if (isChilled)
-        {
-            finalSpeed /= 2;
-        }
-        return finalSpeed;
-    }
-
-    private float GetFinalEatCooldown()
-    {
-        float finalEatCooldown = eatCooldown;
-        if (isChilled)
-        {
-            finalEatCooldown *= 2;
-        }
-        return finalEatCooldown;
-    }
-
-    public void Chill()
-    {
-        CancelInvoke(nameof(Unchill));
-        if (!isChilled)
-        {
-            isChilled = true;
-            GetComponent<SpriteRenderer>().color = chilledColor;
-        }
-        Invoke(nameof(Unchill),10);
-    }
-
-    public void Unchill()
-    {
-        if (isChilled)
-        {
-            isChilled = false;
-            GetComponent<SpriteRenderer>().color = Color.white;
-        }
     }
 
     public void Hit(int damage)
