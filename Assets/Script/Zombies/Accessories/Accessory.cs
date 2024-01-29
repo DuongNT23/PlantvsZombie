@@ -9,8 +9,22 @@ namespace Assets.Script.Zombies.Accessories
 {
     public class Accessory : MonoBehaviour
     {
-        private int health;
+        public int health;
         public bool isMetal = false;
+
+
+        [SerializeField] private Sprite firstDamagedSprite;
+        [SerializeField] private Sprite secondDamagedSprite;
+
+        [SerializeField] private int healthUntilFirstDamaged;
+        [SerializeField] private int healthUntilSecondDamaged;
+
+        private SpriteRenderer renderer;
+
+        private void Start()
+        {
+            renderer = gameObject.GetComponent<SpriteRenderer>();
+        }
 
         /// <summary>
         /// Inflict damage to the accessory.
@@ -19,15 +33,32 @@ namespace Assets.Script.Zombies.Accessories
         /// <returns>How much damage was not inflicted to the accessory.</returns>
         public virtual int Hit(int damage)
         {
+            int remain = 0;
             if (health < damage)
             {
-                var remain = damage - health;
+                remain = damage - health;
                 health = 0;
-                return remain;
             }
-            health -= damage;
-            return 0;
+            else
+            {
+                health -= damage;
+            }
+
+            UpdateSprite();
+            return remain;
         }
+
+        private void UpdateSprite()
+        {
+            if (health <= healthUntilSecondDamaged)
+            {
+                renderer.sprite = secondDamagedSprite;
+            } else if (health <= healthUntilFirstDamaged)
+            {
+                renderer.sprite = firstDamagedSprite;
+            }
+        }
+
 
         public void RemoveAccessory(Zombie owner)
         {

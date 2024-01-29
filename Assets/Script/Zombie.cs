@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Script.Zombies;
+using Assets.Script.Zombies.Accessories;
 using UnityEngine;
 
 public class Zombie : AbstractZombie
 {
+    [SerializeField] public Transform hatLocation;
     private void Start()
     {
         health = type.health;
@@ -56,10 +58,29 @@ public class Zombie : AbstractZombie
 
     public void Hit(int damage)
     {
+        if (accessory != null)
+        {
+            damage = accessory.Hit(damage);
+            if (accessory.isDead())
+            {
+                accessory.RemoveAccessory(this);
+            }
+        }
         health -= damage;
         if (health <= 0 )
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetAccessory(Accessory accessory)
+    {
+        Debug.Log("Setting accessory");
+        if (this.accessory != null)
+        {
+            Destroy(this.accessory);
+        }
+        this.accessory = Instantiate(accessory, hatLocation.position, Quaternion.identity);
+        this.accessory.transform.SetParent(this.transform);
     }
 }

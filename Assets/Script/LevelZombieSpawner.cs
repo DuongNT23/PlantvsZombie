@@ -141,10 +141,10 @@ public class LevelZombieSpawner : MonoBehaviour
                 var randomSpawnPos = spawnPositions[r];
                 var spawnPosition = GetSpawnPosition(SpawnPoints[randomSpawnPos].position);
                 spawnPositions.RemoveAt(r);
-                GameObject myZombie = Instantiate(Zombie, spawnPosition, Quaternion.identity);
+                ZombieFactory.Instance.InstantiateConeheadZombie(spawnPosition);
                 if (TryGetType(zombie.type,out var type))
                 {
-                    myZombie.GetComponent<Zombie>().type = type;
+                    //myZombie.GetComponent<Zombie>().type = type;
                 }
             }
         }
@@ -176,10 +176,10 @@ public class LevelZombieSpawner : MonoBehaviour
             {
                 var r = Random.Range(0, SpawnPoints.Length);
                 var spawnPosition = GetSpawnPosition(SpawnPoints[r].position);
-                GameObject myZombie = Instantiate(Zombie, spawnPosition, Quaternion.identity);
+                ZombieFactory.Instance.InstantiateBucketheadZombie(spawnPosition);
                 if (TryGetType(zombie.type, out var type))
                 {
-                    myZombie.GetComponent<Zombie>().type = type;
+                    //myZombie.GetComponent<Zombie>().type = type;
                 }
             }
         }
