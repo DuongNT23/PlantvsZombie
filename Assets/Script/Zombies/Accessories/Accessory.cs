@@ -18,6 +18,7 @@ namespace Assets.Script.Zombies.Accessories
 
         [SerializeField] private int healthUntilFirstDamaged;
         [SerializeField] private int healthUntilSecondDamaged;
+        [SerializeField] public Vector3 dislodgeSprite;
 
         private SpriteRenderer renderer;
 
@@ -31,7 +32,7 @@ namespace Assets.Script.Zombies.Accessories
         /// </summary>
         /// <param name="damage">Amount of damage</param>
         /// <returns>How much damage was not inflicted to the accessory.</returns>
-        public virtual int Hit(int damage)
+        public virtual int Hit(int damage, int damageType = DamageType.DIRECT)
         {
             int remain = 0;
             if (health < damage)

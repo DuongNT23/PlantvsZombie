@@ -27,7 +27,7 @@ public class LobbedProjectile : MonoBehaviour, IProjectile
     {
         if (other.TryGetComponent<Zombie>(out Zombie zombie))
         {
-            zombie.Hit(damage);
+            zombie.Hit(damage, DamageType.LOB);
             SoundManager.Instance.PlaySound(_onHitClip);
             Destroy(gameObject);
         }

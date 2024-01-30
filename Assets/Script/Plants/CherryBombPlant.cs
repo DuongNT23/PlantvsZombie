@@ -21,7 +21,7 @@ namespace Assets.Script.Plants
             {
                 if (x.TryGetComponent<Zombie>(out var zombie))
                 {
-                    zombie.Hit(explosionDamage);
+                    zombie.Hit(explosionDamage,DamageType.EXPLOSION);
                 }
             }
         }

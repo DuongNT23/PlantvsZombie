@@ -56,11 +56,11 @@ public class Zombie : AbstractZombie
             transform.position -= new Vector3(GetFinalSpeed(), 0 ,0);
     }
 
-    public void Hit(int damage)
+    public void Hit(int damage, int damageType = DamageType.DIRECT)
     {
         if (accessory != null)
         {
-            damage = accessory.Hit(damage);
+            damage = accessory.Hit(damage,damageType);
             if (accessory.isDead())
             {
                 accessory.RemoveAccessory(this);
@@ -80,7 +80,7 @@ public class Zombie : AbstractZombie
         {
             Destroy(this.accessory);
         }
-        this.accessory = Instantiate(accessory, hatLocation.position, Quaternion.identity);
+        this.accessory = Instantiate(accessory, hatLocation.position + accessory.dislodgeSprite, Quaternion.identity);
         this.accessory.transform.SetParent(this.transform);
     }
 }

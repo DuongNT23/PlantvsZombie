@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1100
-  isMetal: 0
+  isMetal: 1
   firstDamagedSprite: {fileID: 21300000, guid: 1b0eedc3408d69a4ca78290c74c28b14, type: 3}
   secondDamagedSprite: {fileID: 21300000, guid: a5ac69e7d0d5a244db39bbf20ba6e604, type: 3}
   healthUntilFirstDamaged: 750
   healthUntilSecondDamaged: 400
+  dislodgeSprite: {x: -0.05, y: -0.1, z: 0}

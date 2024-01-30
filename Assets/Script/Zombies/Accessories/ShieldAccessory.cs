@@ -8,10 +8,13 @@ namespace Assets.Script.Zombies.Accessories
 {
     public class ShieldAccessory : Accessory
     {
-        public override int Hit(int damage)
+        public override int Hit(int damage, int damageType)
         {
-
-            return base.Hit(damage);
+            if (damageType == DamageType.DIRECT)
+            {
+                return base.Hit(damage, damageType);
+            }
+            return damage;
         }
     }
 }
