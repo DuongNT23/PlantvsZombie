@@ -12,10 +12,11 @@
         },
         {
             "is_large_wave": false,
+            "spread_evenly": true,
             "zombies": [
                 {
                     "type": "normal",
-                    "amount": 1,
+                    "amount": 12,
                     "row": "random"
                 }
             ]
