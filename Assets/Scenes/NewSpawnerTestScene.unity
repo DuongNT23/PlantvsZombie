@@ -3333,6 +3333,7 @@ MonoBehaviour:
   basicZombie: {fileID: 7877001280735151065, guid: a28b47a88c772bd4d8ee35c7d23b41e1, type: 3}
   cone: {fileID: -4823427993656358146, guid: 5530caf4aceed9e43b31c7b57d011e22, type: 3}
   bucket: {fileID: -4823427993656358146, guid: 65e77817369830c4db1c45dd3d0a3e42, type: 3}
+  screenDoor: {fileID: 8229568615759849826, guid: fd770e21f8bc9a5498aa6e4b4b0fae39, type: 3}
 --- !u!4 &471203876
 Transform:
   m_ObjectHideFlags: 0

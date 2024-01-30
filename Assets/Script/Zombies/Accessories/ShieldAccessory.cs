@@ -13,6 +13,9 @@ namespace Assets.Script.Zombies.Accessories
             if (damageType == DamageType.DIRECT)
             {
                 return base.Hit(damage, damageType);
+            } else if (damageType == DamageType.LASER)
+            {
+                base.Hit(damage, damageType);
             }
             return damage;
         }

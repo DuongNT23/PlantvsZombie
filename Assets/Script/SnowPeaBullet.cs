@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Script.Zombies.Accessories;
+using UnityEngine;
 
 namespace Assets.Script
 {
@@ -9,7 +10,10 @@ namespace Assets.Script
             if (other.TryGetComponent<Zombie>(out Zombie zombie))
             {
                 zombie.Hit(damage);
-                zombie.Chill();
+                if (zombie.accessory == null || zombie.accessory is not ShieldAccessory)
+                {
+                    zombie.Chill();
+                }
                 SoundManager.Instance.PlaySound(_onPeaHitClip);
                 Destroy(gameObject);
             }
