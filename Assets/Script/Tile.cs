@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public bool isPlant;
+    public GameObject plant = null;
 }

@@ -18,19 +18,40 @@ public class PlantScript : MonoBehaviour
 
     private GameManage gms;
 
+    private Image[] images;
+
     private void Start()
     {
+        //TODO Cooldown
         gms = GameObject.Find("GameManage").GetComponent<GameManage>();
         GetComponent<Button>().onClick.AddListener(BuyPlant);
+        images = gameObject.GetComponentsInChildren<Image>();
+    }
+
+    private void Update()
+    {
+        if (gms.suns >= price)
+        {
+            foreach (var image in images)
+            {
+                image.color = Color.white;
+            }
+        }
+        else
+        {
+            foreach (var image in images)
+            {
+                image.color = Color.gray;
+            }
+        }
     }
 
     private void BuyPlant()
     {
-        if (gms.suns >=  price && !gms.currentPlant)
+        //TODO Grey out if cannot buy
+        if (gms.suns >=  price)
         {
-            gms.suns -= price;
-            gms.BuyPlant(plantObject, plantSprite);
-
+            gms.BuyPlant(plantObject, plantSprite, price);
         }
     }
 
