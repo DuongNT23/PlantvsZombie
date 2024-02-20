@@ -177,10 +177,10 @@ public class LevelZombieSpawner : MonoBehaviour
                 var r = Random.Range(0, SpawnPoints.Length);
                 var spawnPosition = GetSpawnPosition(SpawnPoints[r].position);
                 ZombieFactory.Instance.InstantiateFromType(spawnPosition, zombie.type);
-                if (TryGetType(zombie.type, out var type))
-                {
-                    //myZombie.GetComponent<Zombie>().type = type;
-                }
+                //if (TryGetType(zombie.type, out var type))
+                //{
+                //    //myZombie.GetComponent<Zombie>().type = type;
+                //}
             }
         }
     }
