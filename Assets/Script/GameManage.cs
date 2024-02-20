@@ -20,6 +20,11 @@ public class GameManage : MonoBehaviour
 
     [SerializeField] private AudioClip _sunCollectClip;
     [SerializeField] private AudioClip _levelMusic;
+
+    //This is for dynamically load plant in
+    //TODO Load plants dynamically in from select screen
+    [SerializeField] private GameObject[] plantSlots;
+    [SerializeField] private GameObject[] plantSelected;
     public void BuyPlant(GameObject plant, Sprite sprite, int cost)
     {
         isUsingShovel = false;
@@ -30,6 +35,22 @@ public class GameManage : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log($"Selected {plantSelected.Length} plants.");
+        int i = 0;
+        foreach (var plant in plantSelected)
+        {
+            if (i < plantSlots.Length)
+            {
+                var slot = plantSlots[i];
+                Instantiate(plant, slot.transform);
+                Debug.Log("Instantiated");
+                i++;
+            }
+            else
+            {
+                break;
+            }
+        }
         SoundManager.Instance.PlayMusic(_levelMusic);
     }
 
