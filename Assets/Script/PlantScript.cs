@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlantScript : MonoBehaviour
+public class PlantScript : AbstractPlantScript
 {
     public Sprite plantSprite;
 
@@ -18,33 +18,29 @@ public class PlantScript : MonoBehaviour
 
     private GameManage gms;
 
-    private Image[] images;
+    
 
-    private void Start()
+    public override void Start()
     {
         //TODO Cooldown
         gms = GameObject.Find("GameManage").GetComponent<GameManage>();
-        GetComponent<Button>().onClick.AddListener(BuyPlant);
         images = gameObject.GetComponentsInChildren<Image>();
+        GetComponent<Button>().onClick.AddListener(BuyPlant);
     }
 
     private void Update()
     {
         if (gms.suns >= price)
         {
-            foreach (var image in images)
-            {
-                image.color = Color.white;
-            }
+            Enable();
         }
         else
         {
-            foreach (var image in images)
-            {
-                image.color = Color.gray;
-            }
+            Disable();
         }
     }
+
+    
 
     private void BuyPlant()
     {
