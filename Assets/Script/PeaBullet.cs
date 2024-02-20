@@ -8,6 +8,7 @@ public class PeaBullet : MonoBehaviour, IProjectile
 {
     public int damage;
     public float speed = .8f;
+    private bool hasCollided = false;
 
     [SerializeField] protected AudioClip _onPeaHitClip;
 
@@ -22,7 +23,12 @@ public class PeaBullet : MonoBehaviour, IProjectile
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.TryGetComponent<Zombie>(out Zombie zombie)){
+        if (hasCollided)
+        {
+            return;
+        }
+        if (other.TryGetComponent<Zombie>(out Zombie zombie)){
+            hasCollided = true;
             zombie.Hit(damage);
             SoundManager.Instance.PlaySound(_onPeaHitClip);
             Destroy(gameObject);
