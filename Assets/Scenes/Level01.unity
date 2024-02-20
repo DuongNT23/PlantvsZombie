@@ -1322,6 +1322,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sunCollectClip: {fileID: 8300000, guid: 6b75e6f4fcba6e241a06eb3178fca0cd, type: 3}
+  _levelMusic: {fileID: 8300000, guid: ed9e82a639ff52244995fcc5b261c669, type: 3}
 --- !u!4 &719230102
 Transform:
   m_ObjectHideFlags: 0

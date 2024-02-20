@@ -15,10 +15,16 @@ public class GameManage : MonoBehaviour
     public LayerMask sunMask;
 
     [SerializeField] private AudioClip _sunCollectClip;
+    [SerializeField] private AudioClip _levelMusic;
     public void BuyPlant(GameObject plant, Sprite sprite)
     {
         currentPlant = plant;
         currentPlantSprite = sprite;
+    }
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayMusic(_levelMusic);
     }
 
     private void Update()
