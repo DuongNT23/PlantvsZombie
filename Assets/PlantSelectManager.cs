@@ -10,11 +10,12 @@ public class PlantSelectManager : MonoBehaviour
 {
     [SerializeField] private Button startButton;
     [SerializeField] private PlantSelectTab tab;
-
+    [SerializeField] private int plantLimit = 6;
 
     // Start is called before the first frame update
     void Start()
     {
+        tab.plantLimit = plantLimit;
         startButton.onClick.AddListener(StartLevel);
         DenyBegin();
     }

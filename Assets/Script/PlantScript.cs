@@ -18,6 +18,7 @@ public class PlantScript : AbstractPlantScript
 
     private GameManage gms;
 
+    [SerializeField] private int cooldown;
     
 
     public override void Start()
@@ -44,7 +45,6 @@ public class PlantScript : AbstractPlantScript
 
     private void BuyPlant()
     {
-        //TODO Grey out if cannot buy
         if (gms.suns >=  price)
         {
             gms.BuyPlant(plantObject, plantSprite, price);
