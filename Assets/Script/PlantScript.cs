@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,15 +16,16 @@ public class PlantScript : AbstractPlantScript
     public Image icon;
 
     public TextMeshProUGUI priceText;
+    public TextMeshProUGUI cooldownText;
 
     private GameManage gms;
 
-    [SerializeField] private int cooldown;
-    
+    [SerializeField] private float cooldown;
+    private float endCooldown = 0; 
 
     public override void Start()
     {
-        //TODO Cooldown
+        endCooldown = Time.time;
         gms = GameObject.Find("GameManage").GetComponent<GameManage>();
         images = gameObject.GetComponentsInChildren<Image>();
         GetComponent<Button>().onClick.AddListener(BuyPlant);
@@ -31,6 +33,15 @@ public class PlantScript : AbstractPlantScript
 
     private void Update()
     {
+        var current = Time.time;
+        if (current <= endCooldown) //Is under cooldown
+        {
+            Disable();
+            var remaining = endCooldown - current;
+            cooldownText.text = remaining.ToString("0.0");
+            return;
+        }
+        cooldownText.text = String.Empty;
         if (gms.suns >= price)
         {
             Enable();
@@ -45,9 +56,9 @@ public class PlantScript : AbstractPlantScript
 
     private void BuyPlant()
     {
-        if (gms.suns >=  price)
+        if (isEnabled)
         {
-            gms.BuyPlant(plantObject, plantSprite, price);
+            gms.BuyPlant(plantObject, plantSprite, price, this);
         }
     }
 
@@ -63,5 +74,10 @@ public class PlantScript : AbstractPlantScript
         {
             icon.enabled = false;
         }
+    }
+
+    public void Bought()
+    {
+        endCooldown = Time.time + cooldown;
     }
 }

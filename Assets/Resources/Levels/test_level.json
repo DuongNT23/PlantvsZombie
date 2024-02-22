@@ -19,7 +19,12 @@
                     "amount": 1,
                     "row": "random",
                     "spread": true
-                },
+                }
+            ]
+        },
+        {
+            "is_large_wave": false,
+            "zombies": [
                 {
                     "type": "normal",
                     "amount": 1,
@@ -44,7 +49,178 @@
             "zombies": [
                 {
                     "type": "normal",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": false,
+            "zombies": [
+                {
+                    "type": "normal",
                     "amount": 1,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": true,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 4,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 3,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 4,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 3,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 4,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "is_large_wave": true,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 11,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 5,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
+                    "amount": 2,
                     "row": "random",
                     "spread": true
                 }

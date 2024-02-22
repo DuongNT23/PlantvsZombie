@@ -17,6 +17,7 @@ public class GameManage : MonoBehaviour
     public bool isUsingShovel = false;
 
     private int plantCost = 0;
+    private PlantScript plantScript;
 
     [SerializeField] private AudioClip _sunCollectClip;
     [SerializeField] private AudioClip _levelMusic;
@@ -25,12 +26,13 @@ public class GameManage : MonoBehaviour
     //TODO Load plants dynamically in from select screen
     [SerializeField] private GameObject[] plantSlots;
     [SerializeField] private GameObject[] plantSelected;
-    public void BuyPlant(GameObject plant, Sprite sprite, int cost)
+    public void BuyPlant(GameObject plant, Sprite sprite, int cost, PlantScript plantScript)
     {
         isUsingShovel = false;
         currentPlant = plant;
         currentPlantSprite = sprite;
         plantCost = cost;
+        this.plantScript = plantScript;
     }
 
     private void Start()
@@ -100,6 +102,7 @@ public class GameManage : MonoBehaviour
                     var plant = Instantiate(currentPlant, tile.transform.position, Quaternion.identity);
                     tile.plant = plant;
                     this.suns -= plantCost;
+                    plantScript.Bought();
                     CancelBuyPlant();
                 }
             }

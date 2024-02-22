@@ -7,7 +7,7 @@ using TMPro;
 public abstract class AbstractPlantScript : MonoBehaviour
 {
     protected Image[] images;
-    protected bool enabled = true;
+    protected bool isEnabled = true;
     public virtual void Start()
     {
         images = gameObject.GetComponentsInChildren<Image>();
@@ -15,7 +15,7 @@ public abstract class AbstractPlantScript : MonoBehaviour
 
     public void Enable()
     {
-        enabled = true;
+        isEnabled = true;
         foreach (var image in images)
         {
             image.color = Color.white;
@@ -24,7 +24,7 @@ public abstract class AbstractPlantScript : MonoBehaviour
 
     public void Disable()
     {
-        enabled = false;
+        isEnabled = false;
         foreach (var image in images)
         {
             image.color = Color.gray;

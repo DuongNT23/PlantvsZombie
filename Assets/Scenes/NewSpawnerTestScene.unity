@@ -1594,6 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7efd91ffd84009c49a701170a5eaf4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlantSelections: []
 --- !u!4 &243340489
 Transform:
   m_ObjectHideFlags: 0
@@ -3884,7 +3885,7 @@ MonoBehaviour:
   tileMask:
     serializedVersion: 2
     m_Bits: 64
-  suns: 1000
+  suns: 50
   sunText: {fileID: 1228724717}
   sunMask:
     serializedVersion: 2
@@ -5370,7 +5371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a87f0ca47add3242bb28c86702a5973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathToLevelFile: Levels/level_1
+  PathToLevelFile: Levels/test_level
   LevelData:
     waves: []
   SpawnPoints:
@@ -5385,8 +5386,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa64353d665bcae4c86c65cdb0850db7, type: 2}
   - {fileID: 11400000, guid: 609e4778a562f6c42b4b6f6233563a59, type: 2}
   - {fileID: 11400000, guid: ca41c5050d9087f46b91e9cd593c1d62, type: 2}
-  GracePeriod: 5
-  WaveGracePeriod: 10
+  GracePeriod: 15
+  WaveGracePeriod: 2
   MaximumWavePeriod: 30
 --- !u!1 &1191124887
 GameObject:
