@@ -11,6 +11,8 @@ namespace Assets.Script.Levels.SpawnData
     {
         public int plantLimit = 9;
         public int startingSun = 50;
+        public bool noSunDrops = false;
+        public string background;
         public List<WaveSpawnData> waves;
     }
 }

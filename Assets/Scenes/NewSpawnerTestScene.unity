@@ -3892,7 +3892,8 @@ MonoBehaviour:
     m_Bits: 256
   isUsingShovel: 0
   _sunCollectClip: {fileID: 8300000, guid: 6b75e6f4fcba6e241a06eb3178fca0cd, type: 3}
-  _levelMusic: {fileID: 0}
+  _levelMusic: {fileID: 8300000, guid: ed9e82a639ff52244995fcc5b261c669, type: 3}
+  backgroundRenderer: {fileID: 1557388534}
   plantSlots:
   - {fileID: 57152975}
   - {fileID: 696671255}
@@ -5371,9 +5372,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a87f0ca47add3242bb28c86702a5973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathToLevelFile: Levels/test_level
   LevelData:
     plantLimit: 9
+    startingSun: 50
+    noSunDrops: 0
+    background: 
     waves: []
   SpawnPoints:
   - {fileID: 1344454885}

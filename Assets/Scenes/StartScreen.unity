@@ -419,7 +419,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1063,7 +1063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43e5de6e33b15142869cf2d0c4f92d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPath: Levels/test_level
 --- !u!4 &1412018689
 Transform:
   m_ObjectHideFlags: 0

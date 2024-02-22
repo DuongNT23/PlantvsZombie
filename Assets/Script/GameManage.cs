@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Assets.Script.Levels.SpawnData;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
@@ -21,6 +22,7 @@ public class GameManage : MonoBehaviour
 
     [SerializeField] private AudioClip _sunCollectClip;
     [SerializeField] private AudioClip _levelMusic;
+    [SerializeField] private SpriteRenderer backgroundRenderer;
 
     //This is for dynamically load plant in
     //TODO Load plants dynamically in from select screen
@@ -37,7 +39,23 @@ public class GameManage : MonoBehaviour
 
     private void Start()
     {
-        suns = LevelDataManager.Instance.GetLevelData().startingSun;
+        LevelData levelData = LevelDataManager.Instance.GetLevelData();
+        suns = levelData.startingSun;
+        //Background
+        if (levelData.background is { Length: > 0 })
+        {
+            var sprite = Resources.Load<Sprite>(levelData.background);
+            if (sprite == null)
+            {
+                Debug.LogError($"Failed to load background. ({levelData.background})");
+            }
+            else
+            {
+                backgroundRenderer.sprite = sprite;
+            }
+            
+        }
+        
         var selections = PlantSelectDataHandler.Instance.PlantSelections;
         if (selections == null || selections.Length == 0)
         {

@@ -1,6 +1,8 @@
 {
     "plantLimit": 6,
     "startingSun": 125,
+    "noSunDrops": false,
+    "background": "Background/Night",
     "waves": [
         {
             "is_large_wave": false,
