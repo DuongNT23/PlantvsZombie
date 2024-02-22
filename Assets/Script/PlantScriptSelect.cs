@@ -30,7 +30,7 @@ namespace Assets.Script
         {
             if (isAddMode)
             {
-                if (enabled)
+                if (isEnabled)
                 {
                     plantSelect.AppendPlant(this);
                 }
