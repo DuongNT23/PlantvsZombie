@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public void OnClickStart()
     {
         SoundManager.Instance.PlaySound(_clickAudioClip);
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync("LevelSelectScreen");
     }
 
     public void OnClickContinue()

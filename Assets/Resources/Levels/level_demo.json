@@ -1,4 +1,7 @@
+
 {
+    "plantLimit": 6,
+    "startingSun": 50,
     "waves": [
         {
             "is_large_wave": false,
