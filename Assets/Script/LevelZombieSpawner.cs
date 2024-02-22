@@ -9,8 +9,6 @@ using Random = UnityEngine.Random;
 
 public class LevelZombieSpawner : MonoBehaviour
 {
-    //TODO replace this with a method to set the level file
-    public string PathToLevelFile = "";
     [CanBeNull] public LevelData LevelData = null;
     public Transform[] SpawnPoints;
     public GameObject Zombie;
@@ -66,7 +64,7 @@ public class LevelZombieSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LevelData = GetLevelData(PathToLevelFile);
+        LevelData = LevelDataManager.Instance.GetLevelData();
         Debug.Log($"Wave Count: {LevelData.waves.Count}");
         Invoke("BeginSpawning",GracePeriod);
     }

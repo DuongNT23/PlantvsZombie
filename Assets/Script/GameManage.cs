@@ -37,6 +37,7 @@ public class GameManage : MonoBehaviour
 
     private void Start()
     {
+        suns = LevelDataManager.Instance.GetLevelData().startingSun;
         var selections = PlantSelectDataHandler.Instance.PlantSelections;
         if (selections == null || selections.Length == 0)
         {

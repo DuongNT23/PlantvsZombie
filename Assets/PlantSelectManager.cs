@@ -10,12 +10,20 @@ public class PlantSelectManager : MonoBehaviour
 {
     [SerializeField] private Button startButton;
     [SerializeField] private PlantSelectTab tab;
-    [SerializeField] private int plantLimit = 6;
 
     // Start is called before the first frame update
     void Start()
     {
-        tab.plantLimit = plantLimit;
+        var levelData = LevelDataManager.Instance.GetLevelData();
+        if (levelData.plantLimit <= 0)
+        {
+            Debug.LogWarning($"Plant Limit must be from 1 to 9 (Set to 9, was {levelData.plantLimit})");
+            tab.plantLimit = 9;
+        }
+        else
+        {
+            tab.plantLimit = levelData.plantLimit;
+        }
         startButton.onClick.AddListener(StartLevel);
         DenyBegin();
     }
