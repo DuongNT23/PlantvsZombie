@@ -35,6 +35,16 @@ public class GameManage : MonoBehaviour
 
     private void Start()
     {
+        var selections = PlantSelectDataHandler.Instance.PlantSelections;
+        if (selections == null || selections.Length == 0)
+        {
+            Debug.Log("Empty, loading debug plants.");
+        }
+        else
+        {
+            plantSelected = selections;
+        }
+        
         Debug.Log($"Selected {plantSelected.Length} plants.");
         int i = 0;
         foreach (var plant in plantSelected)

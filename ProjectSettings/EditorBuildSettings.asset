@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: 5d5d5be2523be9b4d91c9f2f937e6ea0
   - enabled: 1
-    path: Assets/Scenes/Level01.unity
-    guid: aad06b9dda21e9b4a91fa59fa2cbfa21
+    path: Assets/Scenes/PlantSelect.unity
+    guid: 5e1d8cb10f8811f498bf6cd0b1874992
   - enabled: 1
     path: Assets/Scenes/NewSpawnerTestScene.unity
     guid: 8b1cc088356d45a428e211071b1dc159
+  - enabled: 1
+    path: Assets/Scenes/Level01.unity
+    guid: aad06b9dda21e9b4a91fa59fa2cbfa21
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729

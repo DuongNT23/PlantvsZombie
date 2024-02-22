@@ -3,20 +3,40 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Assets.Script;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlantSelectManager : MonoBehaviour
 {
-    [SerializeField] private Transform SpawnLocation;
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private Button startButton;
+    [SerializeField] private PlantSelectTab tab;
 
-    [SerializeField] private int plantsPerRow = 10;
-    [SerializeField] private GameObject[] plantSelects;
-
-    [SerializeField] private float xGap = 50;
-    [SerializeField] private float yGap = 50;
 
     // Start is called before the first frame update
     void Start()
     {
+        startButton.onClick.AddListener(StartLevel);
+        DenyBegin();
+    }
+
+    public void AllowBegin()
+    {
+        startButton.interactable = true;
+    }
+
+    public void DenyBegin()
+    {
+        startButton.interactable = false;
+    }
+
+    private void StartLevel()
+    {
+        var list = new List<GameObject>();
+        foreach (var select in tab.Selects)
+        {
+            list.Add(select.seedPackage);
+        }
+        PlantSelectDataHandler.Instance.PlantSelections = list.ToArray();
+        SceneManager.LoadScene("NewSpawnerTestScene");
     }
 }
