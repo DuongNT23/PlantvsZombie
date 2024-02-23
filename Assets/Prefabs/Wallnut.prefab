@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1359591308651017336}
   - component: {fileID: 7819781454857037559}
-  - component: {fileID: 8786169896115373569}
   - component: {fileID: 3361364042202426691}
+  - component: {fileID: 527817419914861789}
   m_Layer: 0
   m_Name: Wallnut
   m_TagString: Untagged
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8786169896115373569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7025129746123423348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad5d40d4551f99140962ba28f7468211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 4000
 --- !u!61 &3361364042202426691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,3 +131,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &527817419914861789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025129746123423348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d8036f269817f43ac07dcd21f4868a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4000
+  firstDamage: {fileID: 21300000, guid: 571e464199b3b6340970869c534bfc02, type: 3}
+  secondDamage: {fileID: 21300000, guid: 30fd3603c562ffd45b3283987c6f1b2d, type: 3}

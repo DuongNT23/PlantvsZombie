@@ -44,7 +44,6 @@ public class LevelZombieSpawner : MonoBehaviour
     /// Tracks how long this wave has been going.
     /// </summary>
     private int _waveTimer = 0;
-
     private LevelData GetLevelData(string levelJsonPath)
     {
         TextAsset jsonFile = Resources.Load<TextAsset>(levelJsonPath);
@@ -89,7 +88,7 @@ public class LevelZombieSpawner : MonoBehaviour
         Debug.Log($"Wave count = {LevelData.waves.Count}");
         if (_currentWave == LevelData.waves.Count)
         {
-            Win();
+            TryWin();
             return;
         }
         var waveData = LevelData.waves[_currentWave];
@@ -101,6 +100,18 @@ public class LevelZombieSpawner : MonoBehaviour
         _waveTimer = WaveGracePeriod;
         _currentWave++;
         InvokeRepeating("CheckNextSpawn",WaveGracePeriod,1);
+    }
+
+    private void TryWin()
+    {
+        if (GameObject.FindObjectsOfType(typeof(Zombie)).Length == 0)
+        {
+            Win();
+        }
+        else
+        {
+            Invoke(nameof(TryWin),1);
+        }
     }
 
     private void SpawnZombies(WaveSpawnData waveSpawnData)
@@ -194,7 +205,7 @@ public class LevelZombieSpawner : MonoBehaviour
             return;
         }
         //Check if there are any zombies remaining on screen
-        var remainingZombies = GameObject.FindObjectsOfType(typeof(Zombie)).Length;
+        var remainingZombies = GetZombieCount();
         if (remainingZombies == 0)
         {
             CancelInvoke(nameof(CheckNextSpawn));
@@ -206,6 +217,10 @@ public class LevelZombieSpawner : MonoBehaviour
         _waveTimer++;
     }
 
+    private int GetZombieCount()
+    {
+        return GameObject.FindObjectsOfType(typeof(Zombie)).Length;
+    }
 
     void Win()
     {
