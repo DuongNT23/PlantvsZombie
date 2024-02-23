@@ -144,5 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 9999
+  eatenAudioClip: {fileID: 8300000, guid: 94a1a34e1d770b8419093b8b04c27260, type: 3}
   timeUntilEffectsApply: 2
   explosionDamage: 1800

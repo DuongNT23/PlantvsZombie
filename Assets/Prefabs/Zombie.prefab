@@ -138,6 +138,7 @@ MonoBehaviour:
   type: {fileID: 11400000, guid: aa64353d665bcae4c86c65cdb0850db7, type: 2}
   accessory: {fileID: 0}
   hatLocation: {fileID: 7465322949189352394}
+  eatAudioClip: {fileID: 8300000, guid: 0cb97a6be0d643f49b10b0312c667ffc, type: 3}
 --- !u!61 &8711451125731521760
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ using UnityEngine;
 public class Zombie : AbstractZombie
 {
     [SerializeField] public Transform hatLocation;
+    [SerializeField] private AudioClip eatAudioClip;
     private void Start()
     {
         health = type.health;
@@ -40,6 +41,7 @@ public class Zombie : AbstractZombie
             return;
         }
         canEat = false;
+        SoundManager.Instance.PlaySound(eatAudioClip);
         Invoke("ResetEatCooldown", GetFinalEatCooldown());
 
         targetPlant.Hit(damage);
