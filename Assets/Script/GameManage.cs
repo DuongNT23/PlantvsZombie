@@ -24,6 +24,7 @@ public class GameManage : MonoBehaviour
     [SerializeField] private AudioClip _sunCollectClip;
     [SerializeField] private AudioClip _levelMusic;
     [SerializeField] private AudioClip _levelWinClip;
+    [SerializeField] private AudioClip _plantAudioClip;
     [SerializeField] private SpriteRenderer backgroundRenderer;
 
     //This is for dynamically load plant in
@@ -76,7 +77,6 @@ public class GameManage : MonoBehaviour
             {
                 var slot = plantSlots[i];
                 Instantiate(plant, slot.transform);
-                Debug.Log("Instantiated");
                 i++;
             }
             else
@@ -111,6 +111,7 @@ public class GameManage : MonoBehaviour
             if (isUsingShovel && tile.plant != null && Input.GetMouseButtonDown(0))
             {
                 Destroy(tile.plant);
+                SoundManager.Instance.PlaySound(_plantAudioClip);
                 isUsingShovel = false;
             }
             else if (currentPlant && tile.plant == null)
@@ -123,6 +124,7 @@ public class GameManage : MonoBehaviour
                     var plant = Instantiate(currentPlant, tile.transform.position, Quaternion.identity);
                     tile.plant = plant;
                     this.suns -= plantCost;
+                    SoundManager.Instance.PlaySound(_plantAudioClip);
                     plantScript.Bought();
                     CancelBuyPlant();
                 }

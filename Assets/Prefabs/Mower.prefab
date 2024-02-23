@@ -172,3 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.4
+  mowing: {fileID: 8300000, guid: 9efde60fa833bca42bdf7584214fdfe3, type: 3}

@@ -14,7 +14,7 @@ public class PeaBullet : MonoBehaviour, IProjectile
 
     private void Start()
     {
-        //Destroy(gameObject,10);
+        Destroy(gameObject,10);
     }
     private void Update()
     {

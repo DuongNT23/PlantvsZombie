@@ -144,7 +144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
+  eatenAudioClip: {fileID: 8300000, guid: 94a1a34e1d770b8419093b8b04c27260, type: 3}
   timeUntilToArm: 14
   timeUntilArmed: 1
   explosionDamage: 1800
   armedSprite: {fileID: 21300000, guid: 5528100cd521fe4418db8af96de4a301, type: 3}
+  explosionClip: {fileID: 8300000, guid: 540cf3eee524e4c4499a5acb14061f6f, type: 3}

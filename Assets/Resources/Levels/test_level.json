@@ -1,15 +1,26 @@
 {
     "plantLimit": 6,
-    "startingSun": 125,
+    "startingSun": 1250,
     "noSunDrops": false,
-    "background": "Background/Night",
+    "background": "Background/Day",
     "waves": [
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
                     "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": true,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 3,
                     "row": "random",
                     "spread": true
                 }

@@ -14,8 +14,15 @@ public class LevelZombieSpawner : MonoBehaviour
     public GameObject Zombie;
 
     [SerializeField] private AudioClip _firstWaveClip;
+    [SerializeField] private AudioClip _nextWaveClip;
+    [SerializeField] private AudioClip _largeWaveClip;
+    [SerializeField] private AudioClip _nextLargeWaveClip;
+    [SerializeField] private AudioClip _finalWaveClip;
+    [SerializeField] private WarningText _warningText;
     [SerializeField] private List<ZombieType> _zombieTypes;
     [SerializeField] private GameManage manager;
+
+    private WaveSpawnData tempData;
 
     private Dictionary<string, int> _zombieIndexes = new Dictionary<string, int>()
     {
@@ -44,22 +51,7 @@ public class LevelZombieSpawner : MonoBehaviour
     /// Tracks how long this wave has been going.
     /// </summary>
     private int _waveTimer = 0;
-    private LevelData GetLevelData(string levelJsonPath)
-    {
-        TextAsset jsonFile = Resources.Load<TextAsset>(levelJsonPath);
-        if (jsonFile == null)
-        {
-            Debug.LogError("Failed to load JSON file.");
-            return null;
-        }
-        string jsonString = jsonFile.text;
-        LevelData readLevelData = JsonUtility.FromJson<LevelData>(jsonString);
-        if (readLevelData == null)
-        {
-            Debug.LogError("levelData has been read but it's null");
-        }
-        return readLevelData;
-    }
+    private bool isFinalWave = false;
 
     // Start is called before the first frame update
     void Start()
@@ -90,16 +82,46 @@ public class LevelZombieSpawner : MonoBehaviour
         {
             TryWin();
             return;
+        } else if (_currentWave + 1 == LevelData.waves.Count)
+        {
+            Debug.Log("Final Wave");
+            isFinalWave = true;
         }
         var waveData = LevelData.waves[_currentWave];
         if (waveData.isLargeWave)
         {
             //TODO large wave stuffs
+            tempData = waveData;
+            Debug.Log("A huge wave of zombie is approaching");
+            _warningText.ShowText(WarningText.HUGE_WAVE,5);
+            SoundManager.Instance.PlaySound(_largeWaveClip);
+            Invoke(nameof(SpawnWaveAsLargeWave),7);
         }
+        else
+        {
+            SoundManager.Instance.PlaySound(_nextWaveClip);
+            SpawnWave(waveData);
+        }
+        
+    }
+
+    private void SpawnWave(WaveSpawnData waveData)
+    {
         SpawnZombies(waveData);
         _waveTimer = WaveGracePeriod;
         _currentWave++;
-        InvokeRepeating("CheckNextSpawn",WaveGracePeriod,1);
+        InvokeRepeating("CheckNextSpawn", WaveGracePeriod, 1);
+        if (isFinalWave)
+        {
+            SoundManager.Instance.PlaySound(_finalWaveClip);
+            _warningText.ShowText(WarningText.FINAL_WAVE);
+        }
+    }
+
+    private void SpawnWaveAsLargeWave()
+    {
+        SoundManager.Instance.PlaySound(_nextLargeWaveClip);
+        SpawnWave(tempData);
     }
 
     private void TryWin()

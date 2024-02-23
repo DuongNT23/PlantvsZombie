@@ -9,6 +9,7 @@ namespace Assets.Script.Plants
         public float timeUntilArmed = 3;
         public int explosionDamage = 1800;
         [SerializeField] private Sprite armedSprite;
+        [SerializeField] private AudioClip explosionClip;
         private bool isArmed = false;
 
         public override void Start()
@@ -51,6 +52,7 @@ namespace Assets.Script.Plants
                     zombie.Hit(explosionDamage,DamageType.EXPLOSION);
                 }
             }
+            SoundManager.Instance.PlaySound(explosionClip);
             Destroy(gameObject);
         }
     }

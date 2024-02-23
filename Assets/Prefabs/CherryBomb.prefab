@@ -147,3 +147,4 @@ MonoBehaviour:
   eatenAudioClip: {fileID: 8300000, guid: 94a1a34e1d770b8419093b8b04c27260, type: 3}
   timeUntilEffectsApply: 2
   explosionDamage: 1800
+  explosion: {fileID: 8300000, guid: a653b729a56bc8f4aa0286c3edcb065d, type: 3}

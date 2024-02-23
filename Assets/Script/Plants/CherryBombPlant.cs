@@ -10,6 +10,7 @@ namespace Assets.Script.Plants
     public class CherryBombPlant : InstantPlant
     {
         public int explosionDamage = 1800;
+        [SerializeField] private AudioClip explosion;
         protected override void Effect()
         {
             var vectorA = new Vector3(1.6f, 1.6f, 0);
@@ -24,6 +25,7 @@ namespace Assets.Script.Plants
                     zombie.Hit(explosionDamage,DamageType.EXPLOSION);
                 }
             }
+            SoundManager.Instance.PlaySound(explosion);
         }
     }
 }

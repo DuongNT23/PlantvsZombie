@@ -8,7 +8,7 @@ public class Mower : MonoBehaviour
 {
     public float speed = .4f;
     private bool activated = false;
-
+    [SerializeField] private AudioClip mowing;
     private void Start()
     {
         //Destroy(gameObject,10);
@@ -27,6 +27,7 @@ public class Mower : MonoBehaviour
             Destroy(zombie.gameObject);
             if (!activated)
             {
+                SoundManager.Instance.PlaySound(mowing);
                 activated = true;
                 Invoke(nameof(Remove),8);
             }
