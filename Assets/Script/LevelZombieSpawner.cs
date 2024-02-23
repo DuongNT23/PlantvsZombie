@@ -90,7 +90,6 @@ public class LevelZombieSpawner : MonoBehaviour
         var waveData = LevelData.waves[_currentWave];
         if (waveData.isLargeWave)
         {
-            //TODO large wave stuffs
             tempData = waveData;
             Debug.Log("A huge wave of zombie is approaching");
             _warningText.ShowText(WarningText.HUGE_WAVE,5);
@@ -120,6 +119,7 @@ public class LevelZombieSpawner : MonoBehaviour
 
     private void SpawnWaveAsLargeWave()
     {
+        //TODO Spawn Flag Zombie
         SoundManager.Instance.PlaySound(_nextLargeWaveClip);
         SpawnWave(tempData);
     }
