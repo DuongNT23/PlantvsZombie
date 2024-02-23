@@ -4,7 +4,7 @@
     "startingSun": 50,
     "waves": [
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -15,7 +15,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -37,7 +37,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -48,7 +48,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -59,7 +59,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -76,7 +76,7 @@
             ]
         },
         {
-            "is_large_wave": true,
+            "isLargeWave": true,
             "zombies": [
                 {
                     "type": "normal",
@@ -93,7 +93,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -110,7 +110,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -127,7 +127,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -144,7 +144,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -167,7 +167,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -184,7 +184,7 @@
             ]
         },
         {
-            "is_large_wave": false,
+            "isLargeWave": false,
             "zombies": [
                 {
                     "type": "normal",
@@ -207,7 +207,7 @@
             ]
         },
         {
-            "is_large_wave": true,
+            "isLargeWave": true,
             "zombies": [
                 {
                     "type": "normal",

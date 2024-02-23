@@ -14,6 +14,7 @@ public class DamageStatePlant : Plant
         health -= damage;
         if (health <= 0)
         {
+            SoundManager.Instance.PlaySound(eatenAudioClip);
            Destroy(gameObject);
         }
         else

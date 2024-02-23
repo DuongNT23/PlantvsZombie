@@ -5,7 +5,7 @@ using UnityEngine;
 public class Plant : MonoBehaviour
 {
     public int health;
-    [SerializeField] private AudioClip eatenAudioClip;
+    [SerializeField] protected AudioClip eatenAudioClip;
     public virtual void Start()
     {
         gameObject.layer = 9;

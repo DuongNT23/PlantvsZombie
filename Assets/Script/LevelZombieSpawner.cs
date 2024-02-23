@@ -185,7 +185,7 @@ public class LevelZombieSpawner : MonoBehaviour
     private Vector3 GetSpawnPosition(Vector3 spawnPoint)
     {
         var spawnPosition = new Vector3(spawnPoint.x, spawnPoint.y, spawnPoint.z);
-        spawnPosition.x += Random.Range(-1, 1);
+        spawnPosition.x += Random.Range(-1f, 1f);
         return spawnPosition;
     } 
 
