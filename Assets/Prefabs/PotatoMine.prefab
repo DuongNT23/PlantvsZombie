@@ -145,6 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 300
   timeUntilToArm: 14
-  timeUntilArmed: 3
+  timeUntilArmed: 1
   explosionDamage: 1800
   armedSprite: {fileID: 21300000, guid: 5528100cd521fe4418db8af96de4a301, type: 3}

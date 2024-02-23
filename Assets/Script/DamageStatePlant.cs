@@ -6,13 +6,8 @@ public class DamageStatePlant : Plant
 {
     [SerializeField] private Sprite firstDamage;
     [SerializeField] private Sprite secondDamage;
-    private int beginHealth;
-
-    public override void Start()
-    {
-        base.Start();
-        beginHealth = health;
-    }
+    [SerializeField] private int healthAtFirstDamage;
+    [SerializeField] private int healthAtSecondDamage;
 
     public override void Hit(int damage)
     {
@@ -29,10 +24,10 @@ public class DamageStatePlant : Plant
 
     private void UpdateSprite()
     {
-        if (health / beginHealth <= 1 / 3)
+        if (health < healthAtSecondDamage)
         {
             GetComponent<SpriteRenderer>().sprite = secondDamage;
-        } else if (health / beginHealth <= 2 / 3)
+        } else if (health < healthAtFirstDamage)
         {
             GetComponent<SpriteRenderer>().sprite = firstDamage;
         }

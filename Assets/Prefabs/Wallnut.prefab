@@ -146,3 +146,5 @@ MonoBehaviour:
   health: 4000
   firstDamage: {fileID: 21300000, guid: 571e464199b3b6340970869c534bfc02, type: 3}
   secondDamage: {fileID: 21300000, guid: 30fd3603c562ffd45b3283987c6f1b2d, type: 3}
+  healthAtFirstDamage: 2667
+  healthAtSecondDamage: 1333
