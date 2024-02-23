@@ -15,6 +15,7 @@ public class LevelZombieSpawner : MonoBehaviour
 
     [SerializeField] private AudioClip _firstWaveClip;
     [SerializeField] private List<ZombieType> _zombieTypes;
+    [SerializeField] private GameManage manager;
 
     private Dictionary<string, int> _zombieIndexes = new Dictionary<string, int>()
     {
@@ -208,6 +209,6 @@ public class LevelZombieSpawner : MonoBehaviour
 
     void Win()
     {
-        Debug.Log("You win!");
+        manager.Win();
     }
 }

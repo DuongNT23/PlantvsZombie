@@ -5,6 +5,7 @@ using Assets.Script.Levels.SpawnData;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class GameManage : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class GameManage : MonoBehaviour
 
     [SerializeField] private AudioClip _sunCollectClip;
     [SerializeField] private AudioClip _levelMusic;
+    [SerializeField] private AudioClip _levelWinClip;
     [SerializeField] private SpriteRenderer backgroundRenderer;
 
     //This is for dynamically load plant in
@@ -154,5 +156,19 @@ public class GameManage : MonoBehaviour
     {
         CancelBuyPlant();
         isUsingShovel = true;
+    }
+
+    public void Win()
+    {
+        Debug.Log("You win!");
+        //TODO: Replace this with an object to click on to perform the action below.
+        SoundManager.Instance.StopMusic();
+        SoundManager.Instance.PlaySound(_levelWinClip);
+        Invoke(nameof(AfterWin),7);
+    }
+
+    private void AfterWin()
+    {
+        SceneManager.LoadScene("StartScreen");
     }
 }

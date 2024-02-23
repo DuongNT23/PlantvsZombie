@@ -3892,7 +3892,8 @@ MonoBehaviour:
     m_Bits: 256
   isUsingShovel: 0
   _sunCollectClip: {fileID: 8300000, guid: 6b75e6f4fcba6e241a06eb3178fca0cd, type: 3}
-  _levelMusic: {fileID: 8300000, guid: ed9e82a639ff52244995fcc5b261c669, type: 3}
+  _levelMusic: {fileID: 8300000, guid: 5d9ec1239d571cd4f80605730ed404ac, type: 3}
+  _levelWinClip: {fileID: 8300000, guid: 33463fb9372846644a94f0e2abd697fc, type: 3}
   backgroundRenderer: {fileID: 1557388534}
   plantSlots:
   - {fileID: 57152975}
@@ -5390,6 +5391,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: aa64353d665bcae4c86c65cdb0850db7, type: 2}
   - {fileID: 11400000, guid: 609e4778a562f6c42b4b6f6233563a59, type: 2}
   - {fileID: 11400000, guid: ca41c5050d9087f46b91e9cd593c1d62, type: 2}
+  manager: {fileID: 719230101}
   GracePeriod: 15
   WaveGracePeriod: 2
   MaximumWavePeriod: 30

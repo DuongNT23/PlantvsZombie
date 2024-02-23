@@ -8,6 +8,11 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource _musicSource, _effectSource;
 
+    private void Start()
+    {
+        _musicSource.loop = true;
+        _effectSource.loop = false;
+    }
     void Awake()
     {
         if (Instance == null)
@@ -36,6 +41,12 @@ public class SoundManager : MonoBehaviour
         {
             return;
         }
-        _musicSource.PlayOneShot(clip);
+        _musicSource.clip = clip;
+        _musicSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        _musicSource.Stop();
     }
 }
