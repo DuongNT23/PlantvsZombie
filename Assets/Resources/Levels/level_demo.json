@@ -2,6 +2,12 @@
 {
     "plantLimit": 6,
     "startingSun": 50,
+    "noSunDrops": false,
+    "background": "Background/Day",
+    "onComplete": {
+        "levelUnlockId": -1,
+        "prize": null
+    },
     "waves": [
         {
             "isLargeWave": false,

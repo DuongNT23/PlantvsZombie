@@ -1,22 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Script.Zombies;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameLossZone : MonoBehaviour
+namespace Assets.Script
 {
-    public void OnTriggerEnter2D(Collider2D other)
+    public class GameLossZone : MonoBehaviour
     {
-
-        Debug.Log("Something entered this zone.");
-        if (other.TryGetComponent<Zombie>(out Zombie zombie))
+        public void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("You lose!");
-            Destroy(zombie.gameObject);
-            SceneManager.LoadSceneAsync(0);
-        }
-    }
 
+            Debug.Log("Something entered this zone.");
+            if (other.TryGetComponent<Zombie>(out Zombie zombie))
+            {
+                Debug.Log("You lose!");
+                Destroy(zombie.gameObject);
+                SceneManager.LoadSceneAsync(0);
+            }
+        }
+
+    }
 }

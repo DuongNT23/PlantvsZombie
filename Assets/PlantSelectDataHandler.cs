@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantSelectDataHandler : MonoBehaviour
+namespace Assets
 {
-    public static PlantSelectDataHandler Instance;
-    public GameObject[] PlantSelections;
-    private void Awake()
+    public class PlantSelectDataHandler : MonoBehaviour
     {
-        if (Instance == null)
+        public static PlantSelectDataHandler Instance;
+        public GameObject[] PlantSelections;
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
+    }
 }

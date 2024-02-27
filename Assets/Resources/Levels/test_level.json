@@ -3,6 +3,10 @@
     "startingSun": 1250,
     "noSunDrops": false,
     "background": "Background/Day",
+    "onComplete": {
+        "levelUnlockId": -1,
+        "prize": null
+    },
     "waves": [
         {
             "isLargeWave": false,

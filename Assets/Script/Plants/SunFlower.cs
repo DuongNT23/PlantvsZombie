@@ -1,21 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SunFlower : MonoBehaviour
+namespace Assets.Script.Plants
 {
-    public GameObject sunObject;
-
-    public float cooldown;
-
-    private void Start()
+    public class SunFlower : MonoBehaviour
     {
-        InvokeRepeating("SpawnSun", cooldown, cooldown);
-    }
+        public GameObject sunObject;
 
-    void SpawnSun()
-    {
-        GameObject mySun =  Instantiate(sunObject, new Vector3(transform.position.x, transform.position.y, 0 ), Quaternion.identity);
-        mySun.GetComponent<Sun>().dropTpYPos = transform.position.y  - 1 ;
+        public float cooldown;
+
+        private void Start()
+        {
+            InvokeRepeating("SpawnSun", cooldown, cooldown);
+        }
+
+        void SpawnSun()
+        {
+            GameObject mySun =  Instantiate(sunObject, new Vector3(transform.position.x, transform.position.y, 0 ), Quaternion.identity);
+            mySun.GetComponent<Sun>().dropTpYPos = transform.position.y  - 1 ;
+        }
     }
 }

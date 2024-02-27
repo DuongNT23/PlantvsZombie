@@ -14,5 +14,6 @@ namespace Assets.Script.Levels.SpawnData
         public bool noSunDrops = false;
         public string background;
         public List<WaveSpawnData> waves;
+        public LevelCompletionInfo onComplete;
     }
 }

@@ -1,23 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SunSpawner : MonoBehaviour
+namespace Assets.Script
 {
-    public GameObject sunObject;
+    public class SunSpawner : MonoBehaviour
+    {
+        public GameObject sunObject;
 
-    private void Start()
-    {
-        var levelData = LevelDataManager.Instance.GetLevelData();
-        if (!levelData.noSunDrops)
+        private void Start()
         {
-            SpawnSun();
+            var levelData = LevelDataManager.Instance.GetLevelData();
+            if (!levelData.noSunDrops)
+            {
+                SpawnSun();
+            }
         }
-    }
-    void SpawnSun()
-    {
-        GameObject mySun = Instantiate(sunObject, new Vector3(Random.Range(-4f, 8.35f), 6, 0), Quaternion.identity);
-        mySun.GetComponent<Sun>().dropTpYPos = Random.Range(2f, -3f); 
-        Invoke("SpawnSun", Random.Range(8, 12));
+        void SpawnSun()
+        {
+            GameObject mySun = Instantiate(sunObject, new Vector3(Random.Range(-4f, 8.35f), 6, 0), Quaternion.identity);
+            mySun.GetComponent<Sun>().dropTpYPos = Random.Range(2f, -3f); 
+            Invoke("SpawnSun", Random.Range(8, 12));
+        }
     }
 }

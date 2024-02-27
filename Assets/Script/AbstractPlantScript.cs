@@ -1,33 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public abstract class AbstractPlantScript : MonoBehaviour
+namespace Assets.Script
 {
-    protected Image[] images;
-    protected bool isEnabled = true;
-    public virtual void Start()
+    public abstract class AbstractPlantScript : MonoBehaviour
     {
-        images = gameObject.GetComponentsInChildren<Image>();
-    }
-
-    public void Enable()
-    {
-        isEnabled = true;
-        foreach (var image in images)
+        protected Image[] images;
+        protected bool isEnabled = true;
+        public virtual void Start()
         {
-            image.color = Color.white;
+            images = gameObject.GetComponentsInChildren<Image>();
         }
-    }
 
-    public void Disable()
-    {
-        isEnabled = false;
-        foreach (var image in images)
+        public void Enable()
         {
-            image.color = Color.gray;
+            isEnabled = true;
+            foreach (var image in images)
+            {
+                image.color = Color.white;
+            }
+        }
+
+        public void Disable()
+        {
+            isEnabled = false;
+            foreach (var image in images)
+            {
+                image.color = Color.gray;
+            }
         }
     }
 }

@@ -1,37 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShovelScript : MonoBehaviour
+namespace Assets.Script
 {
-    private GameManage gms;
-    private bool isUsingShovel = false;
-    private Vector3 initialShovelLocation;
-    [SerializeField] private GameObject shovel;
-    // Start is called before the first frame update
-    void Start()
+    public class ShovelScript : MonoBehaviour
     {
-        initialShovelLocation = shovel.transform.position;
-        gms = GameObject.Find("GameManage").GetComponent<GameManage>();
-        GetComponent<Button>().onClick.AddListener(GetShovel);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (gms.isUsingShovel)
+        private GameManage gms;
+        private bool isUsingShovel = false;
+        private Vector3 initialShovelLocation;
+        [SerializeField] private GameObject shovel;
+        // Start is called before the first frame update
+        void Start()
         {
-            shovel.transform.position = Input.mousePosition;
+            initialShovelLocation = shovel.transform.position;
+            gms = GameObject.Find("GameManage").GetComponent<GameManage>();
+            GetComponent<Button>().onClick.AddListener(GetShovel);
         }
-        else
-        {
-            shovel.transform.position = initialShovelLocation;
-        }
-    }
 
-    private void GetShovel()
-    {
-        gms.GetShovel();
+        // Update is called once per frame
+        void Update()
+        {
+            if (gms.isUsingShovel)
+            {
+                shovel.transform.position = Input.mousePosition;
+            }
+            else
+            {
+                shovel.transform.position = initialShovelLocation;
+            }
+        }
+
+        private void GetShovel()
+        {
+            gms.GetShovel();
+        }
     }
 }

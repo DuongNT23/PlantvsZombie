@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Script.Constants;
 using UnityEngine;
 
 namespace Assets.Script.Zombies.Accessories

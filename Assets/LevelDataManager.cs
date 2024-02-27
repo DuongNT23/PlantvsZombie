@@ -1,54 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Script.Levels.SpawnData;
 using UnityEngine;
 
-public class LevelDataManager : MonoBehaviour
+namespace Assets
 {
-    public static LevelDataManager Instance;
-    private string levelPath;
-    private LevelData levelData;
-    private void Awake()
+    public class LevelDataManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static LevelDataManager Instance;
+        private string levelPath;
+        private LevelData levelData;
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+
+        private void Start()
         {
-            Destroy(gameObject);
+            SetLevelPath("Levels/test_level");
         }
-    }
 
-    private void Start()
-    {
-        SetLevelPath("Levels/test_level");
-    }
+        public string GetLevelPath() => levelPath;
 
-    public string GetLevelPath() => levelPath;
-
-    public void SetLevelPath(string newLevelPath)
-    {
-        levelPath = newLevelPath;
-        levelData = GenerateLevelData();
-    }
-
-    public LevelData GetLevelData() { return levelData; }
-    private LevelData GenerateLevelData()
-    {
-        TextAsset jsonFile = Resources.Load<TextAsset>(levelPath);
-        if (jsonFile == null)
+        public void SetLevelPath(string newLevelPath)
         {
-            Debug.LogError("Failed to load JSON file.");
-            return null;
+            levelPath = newLevelPath;
+            levelData = GenerateLevelData();
         }
-        string jsonString = jsonFile.text;
-        LevelData readLevelData = JsonUtility.FromJson<LevelData>(jsonString);
-        if (readLevelData == null)
+
+        public LevelData GetLevelData() { return levelData; }
+        private LevelData GenerateLevelData()
         {
-            Debug.LogError("levelData has been read but it's null");
+            TextAsset jsonFile = Resources.Load<TextAsset>(levelPath);
+            if (jsonFile == null)
+            {
+                Debug.LogError("Failed to load JSON file.");
+                return null;
+            }
+            string jsonString = jsonFile.text;
+            LevelData readLevelData = JsonUtility.FromJson<LevelData>(jsonString);
+            if (readLevelData == null)
+            {
+                Debug.LogError("levelData has been read but it's null");
+            }
+            return readLevelData;
         }
-        return readLevelData;
     }
 }

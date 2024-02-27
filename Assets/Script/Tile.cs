@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile : MonoBehaviour
+namespace Assets.Script
 {
-    public GameObject plant = null;
+    public class Tile : MonoBehaviour
+    {
+        public GameObject plant = null;
+    }
 }
