@@ -23,6 +23,7 @@ public class GameManage : MonoBehaviour
 
     [SerializeField] private AudioClip _sunCollectClip;
     [SerializeField] private AudioClip _levelMusic;
+    [SerializeField] private AudioClip _levelHordeMusic;
     [SerializeField] private AudioClip _levelWinClip;
     [SerializeField] private AudioClip _plantAudioClip;
     [SerializeField] private SpriteRenderer backgroundRenderer;
@@ -172,5 +173,10 @@ public class GameManage : MonoBehaviour
     private void AfterWin()
     {
         SceneManager.LoadScene("StartScreen");
+    }
+
+    public void TurnOnHordeMusic()
+    {
+        SoundManager.Instance.SwapMusic(_levelHordeMusic);
     }
 }

@@ -95,6 +95,7 @@ public class LevelZombieSpawner : MonoBehaviour
             _warningText.ShowText(WarningText.HUGE_WAVE,5);
             SoundManager.Instance.PlaySound(_largeWaveClip);
             Invoke(nameof(SpawnWaveAsLargeWave),7);
+            Invoke(nameof(TurnOnHordeMusic),5);
         }
         else
         {
@@ -102,6 +103,12 @@ public class LevelZombieSpawner : MonoBehaviour
             SpawnWave(waveData);
         }
         
+    }
+
+    private void TurnOnHordeMusic()
+    {
+        Debug.Log("Turned on Horde Music.");
+        manager.TurnOnHordeMusic();
     }
 
     private void SpawnWave(WaveSpawnData waveData)

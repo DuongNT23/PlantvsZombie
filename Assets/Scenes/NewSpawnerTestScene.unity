@@ -4040,7 +4040,8 @@ MonoBehaviour:
     m_Bits: 256
   isUsingShovel: 0
   _sunCollectClip: {fileID: 8300000, guid: 6b75e6f4fcba6e241a06eb3178fca0cd, type: 3}
-  _levelMusic: {fileID: 8300000, guid: 5d9ec1239d571cd4f80605730ed404ac, type: 3}
+  _levelMusic: {fileID: 8300000, guid: 146fa668aac9d00498c9c6be75e9bc13, type: 3}
+  _levelHordeMusic: {fileID: 8300000, guid: 6ade2ecb11282ca49b80646de9d316a0, type: 3}
   _levelWinClip: {fileID: 8300000, guid: 33463fb9372846644a94f0e2abd697fc, type: 3}
   _plantAudioClip: {fileID: 8300000, guid: 764e5dad361aab74b95b00836cb14ccd, type: 3}
   backgroundRenderer: {fileID: 1557388534}
