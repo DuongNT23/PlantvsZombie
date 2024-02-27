@@ -1,4 +1,6 @@
 using System;
+using Assets.Script.Constants;
+using Assets.Script.Sound;
 using UnityEngine;
 
 namespace Assets.Script.Plants

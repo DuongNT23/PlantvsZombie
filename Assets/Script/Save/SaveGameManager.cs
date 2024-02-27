@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveGameManager : MonoBehaviour
+namespace Assets.Script.Save
 {
-    public static SaveGameManager Instance;
-    void Awake()
+    public class SaveGameManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static SaveGameManager Instance;
+        void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+
     }
-
-
 }

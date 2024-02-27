@@ -1,46 +1,46 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Script.Interfaces;
+using Assets.Script.Sound;
 using UnityEngine;
 
-public class Mower : MonoBehaviour
+namespace Assets.Script
 {
-    public float speed = .4f;
-    private bool activated = false;
-    [SerializeField] private AudioClip mowing;
-    private void Start()
+    public class Mower : MonoBehaviour
     {
-        //Destroy(gameObject,10);
-    }
-    private void Update()
-    {
-        if (activated)
+        public float speed = .4f;
+        private bool activated = false;
+        [SerializeField] private AudioClip mowing;
+        private void Start()
         {
-            Move();
+            //Destroy(gameObject,10);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.TryGetComponent<Zombie>(out Zombie zombie)){
-            Destroy(zombie.gameObject);
-            if (!activated)
+        private void Update()
+        {
+            if (activated)
             {
-                SoundManager.Instance.PlaySound(mowing);
-                activated = true;
-                Invoke(nameof(Remove),8);
+                Move();
             }
-        }    
-    }
+        }
 
-    private void Remove()
-    {
-        Destroy(gameObject);
-    }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if(other.TryGetComponent<Zombie>(out Zombie zombie)){
+                Destroy(zombie.gameObject);
+                if (!activated)
+                {
+                    SoundManager.Instance.PlaySound(mowing);
+                    activated = true;
+                    Invoke(nameof(Remove),8);
+                }
+            }    
+        }
 
-    public void Move()
-    {
-        transform.position += new Vector3(speed * Time.fixedDeltaTime, 0, 0);
+        private void Remove()
+        {
+            Destroy(gameObject);
+        }
+
+        public void Move()
+        {
+            transform.position += new Vector3(speed * Time.fixedDeltaTime, 0, 0);
+        }
     }
 }

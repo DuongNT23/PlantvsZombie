@@ -1,114 +1,116 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+namespace Assets.Script.Sound
 {
-    public static SoundManager Instance;
-
-    [SerializeField] private AudioSource _musicSource, _effectSource, _musicSource2;
-    private bool isUsingMainSource = true;
-    private float crossFadeDuration = 1.5f;
-
-    private void Start()
+    public class SoundManager : MonoBehaviour
     {
-        _musicSource.loop = true;
-        _musicSource2.loop = true;
-        _effectSource.loop = false;
-    }
-    void Awake()
-    {
-        if (Instance == null)
+        public static SoundManager Instance;
+
+        [SerializeField] private AudioSource _musicSource, _effectSource, _musicSource2;
+        private bool isUsingMainSource = true;
+        private float crossFadeDuration = 1.5f;
+
+        private void Start()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            _musicSource.loop = true;
+            _musicSource2.loop = true;
+            _effectSource.loop = false;
         }
-        else
+        void Awake()
         {
-            Destroy(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-    }
 
-    private void Update()
-    {
-    }
-
-    public void PlaySound(AudioClip clip)
-    {
-        if (clip == null)
+        private void Update()
         {
-            return;
         }
-        _effectSource.PlayOneShot(clip);
-    }
 
-    public void PlayMusic(AudioClip clip, float t = 0)
-    {
-        isUsingMainSource = true;
-        if (clip == null)
+        public void PlaySound(AudioClip clip)
         {
-            return;
+            if (clip == null)
+            {
+                return;
+            }
+            _effectSource.PlayOneShot(clip);
         }
-        _musicSource.clip = clip;
-        _musicSource.time = t;
-        _musicSource.Play();
-    }
 
-    public float StopMusic()
-    {
-        var t = _musicSource.time;
-        _musicSource.Stop();
-        return t;
-    }
-
-    public void SwapMusic(AudioClip clip)
-    {
-        if (isUsingMainSource)
+        public void PlayMusic(AudioClip clip, float t = 0)
         {
-            _musicSource2.volume = 0.0f;
-            _musicSource2.clip = clip;
-            _musicSource2.time = _musicSource.time;
-            _musicSource2.Play();
-        }
-        else
-        {
-            _musicSource.volume = 0.0f;
+            isUsingMainSource = true;
+            if (clip == null)
+            {
+                return;
+            }
             _musicSource.clip = clip;
-            _musicSource.time = _musicSource2.time;
+            _musicSource.time = t;
             _musicSource.Play();
         }
-        StartCoroutine(CrossFade());
-    }
 
-    private IEnumerator CrossFade()
-    {
-        float time = 0.0f;
-
-        if (isUsingMainSource)
+        public float StopMusic()
         {
-            while (time <= crossFadeDuration)
-            {
-                time += Time.deltaTime;
-                float progress = time / crossFadeDuration;
-                _musicSource.volume = Mathf.Lerp(1.0f, 0.0f, progress);
-                _musicSource2.volume = Mathf.Lerp(0.0f, 1.0f, progress);
-                yield return null;
-            }
-            isUsingMainSource = false;
+            var t = _musicSource.time;
             _musicSource.Stop();
+            return t;
         }
-        else
+
+        public void SwapMusic(AudioClip clip)
         {
-            while (time <= crossFadeDuration)
+            if (isUsingMainSource)
             {
-                time += Time.deltaTime;
-                float progress = time / crossFadeDuration;
-                _musicSource.volume = Mathf.Lerp(0.0f, 1.0f, progress);
-                _musicSource2.volume = Mathf.Lerp(1.0f, 0.0f, progress);
-                yield return null;
+                _musicSource2.volume = 0.0f;
+                _musicSource2.clip = clip;
+                _musicSource2.time = _musicSource.time;
+                _musicSource2.Play();
             }
-            isUsingMainSource = true;
-            _musicSource2.Stop();
+            else
+            {
+                _musicSource.volume = 0.0f;
+                _musicSource.clip = clip;
+                _musicSource.time = _musicSource2.time;
+                _musicSource.Play();
+            }
+            StartCoroutine(CrossFade());
+        }
+
+        private IEnumerator CrossFade()
+        {
+            float time = 0.0f;
+
+            if (isUsingMainSource)
+            {
+                while (time <= crossFadeDuration)
+                {
+                    time += Time.deltaTime;
+                    float progress = time / crossFadeDuration;
+                    _musicSource.volume = Mathf.Lerp(1.0f, 0.0f, progress);
+                    _musicSource2.volume = Mathf.Lerp(0.0f, 1.0f, progress);
+                    yield return null;
+                }
+                isUsingMainSource = false;
+                _musicSource.Stop();
+            }
+            else
+            {
+                while (time <= crossFadeDuration)
+                {
+                    time += Time.deltaTime;
+                    float progress = time / crossFadeDuration;
+                    _musicSource.volume = Mathf.Lerp(0.0f, 1.0f, progress);
+                    _musicSource2.volume = Mathf.Lerp(1.0f, 0.0f, progress);
+                    yield return null;
+                }
+                isUsingMainSource = true;
+                _musicSource2.Stop();
+            }
         }
     }
 }

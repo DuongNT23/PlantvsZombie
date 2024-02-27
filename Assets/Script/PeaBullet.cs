@@ -1,42 +1,43 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Script.Interfaces;
+using Assets.Script.Sound;
 using UnityEngine;
 
-public class PeaBullet : MonoBehaviour, IProjectile
+namespace Assets.Script
 {
-    public int damage;
-    public float speed = .8f;
-    private bool hasCollided = false;
-
-    [SerializeField] protected AudioClip _onPeaHitClip;
-
-    private void Start()
+    public class PeaBullet : MonoBehaviour, IProjectile
     {
-        Destroy(gameObject,10);
-    }
-    private void Update()
-    {
-        Move();
-    }
+        public int damage;
+        public float speed = .8f;
+        private bool hasCollided = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (hasCollided)
+        [SerializeField] protected AudioClip _onPeaHitClip;
+
+        private void Start()
         {
-            return;
+            Destroy(gameObject,10);
         }
-        if (other.TryGetComponent<Zombie>(out Zombie zombie)){
-            hasCollided = true;
-            zombie.Hit(damage);
-            SoundManager.Instance.PlaySound(_onPeaHitClip);
-            Destroy(gameObject);
-        }    
-    }
+        private void Update()
+        {
+            Move();
+        }
 
-    public void Move()
-    {
-        transform.position += new Vector3(speed * Time.fixedDeltaTime, 0, 0);
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (hasCollided)
+            {
+                return;
+            }
+            if (other.TryGetComponent<Zombie>(out Zombie zombie)){
+                hasCollided = true;
+                zombie.Hit(damage);
+                SoundManager.Instance.PlaySound(_onPeaHitClip);
+                Destroy(gameObject);
+            }    
+        }
+
+        public void Move()
+        {
+            transform.position += new Vector3(speed * Time.fixedDeltaTime, 0, 0);
+        }
     }
 }

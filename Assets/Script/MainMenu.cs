@@ -1,30 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Script.Sound;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+namespace Assets.Script
 {
-    [SerializeField] private AudioClip _clickAudioClip;
-    public void OnClickStart()
+    public class MainMenu : MonoBehaviour
     {
-        SoundManager.Instance.PlaySound(_clickAudioClip);
-        SceneManager.LoadSceneAsync("LevelSelectScreen");
-    }
+        [SerializeField] private AudioClip _clickAudioClip;
+        public void OnClickStart()
+        {
+            SoundManager.Instance.PlaySound(_clickAudioClip);
+            SceneManager.LoadSceneAsync("LevelSelectScreen");
+        }
 
-    public void OnClickContinue()
-    {
-        SoundManager.Instance.PlaySound(_clickAudioClip);
-    }
+        public void OnClickContinue()
+        {
+            SoundManager.Instance.PlaySound(_clickAudioClip);
+        }
 
-    public void OnClickSettings()
-    {
-        SoundManager.Instance.PlaySound(_clickAudioClip);
-    }
+        public void OnClickSettings()
+        {
+            SoundManager.Instance.PlaySound(_clickAudioClip);
+        }
 
-    public void OnClickExit()
-    {
-        SoundManager.Instance.PlaySound(_clickAudioClip);
-        Application.Quit();
+        public void OnClickExit()
+        {
+            SoundManager.Instance.PlaySound(_clickAudioClip);
+            Application.Quit();
+        }
     }
 }

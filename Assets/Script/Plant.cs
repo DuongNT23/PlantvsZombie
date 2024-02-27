@@ -1,22 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Script.Sound;
 using UnityEngine;
 
-public class Plant : MonoBehaviour
+namespace Assets.Script
 {
-    public int health;
-    [SerializeField] protected AudioClip eatenAudioClip;
-    public virtual void Start()
+    public class Plant : MonoBehaviour
     {
-        gameObject.layer = 9;
-    }
-    public virtual void Hit(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
+        public int health;
+        [SerializeField] protected AudioClip eatenAudioClip;
+        public virtual void Start()
         {
-            SoundManager.Instance.PlaySound(eatenAudioClip);
-           Destroy(gameObject);
+            gameObject.layer = 9;
+        }
+        public virtual void Hit(int damage)
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                SoundManager.Instance.PlaySound(eatenAudioClip);
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Assets.Script.Zombies.Accessories;
+﻿using Assets.Script.Sound;
+using Assets.Script.Zombies.Accessories;
 using UnityEngine;
 
 namespace Assets.Script

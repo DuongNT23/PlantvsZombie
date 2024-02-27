@@ -1,36 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Script.Sound;
 using UnityEngine;
 
-public class DamageStatePlant : Plant
+namespace Assets.Script
 {
-    [SerializeField] private Sprite firstDamage;
-    [SerializeField] private Sprite secondDamage;
-    [SerializeField] private int healthAtFirstDamage;
-    [SerializeField] private int healthAtSecondDamage;
-
-    public override void Hit(int damage)
+    public class DamageStatePlant : Plant
     {
-        health -= damage;
-        if (health <= 0)
-        {
-            SoundManager.Instance.PlaySound(eatenAudioClip);
-           Destroy(gameObject);
-        }
-        else
-        {
-            UpdateSprite();
-        }
-    }
+        [SerializeField] private Sprite firstDamage;
+        [SerializeField] private Sprite secondDamage;
+        [SerializeField] private int healthAtFirstDamage;
+        [SerializeField] private int healthAtSecondDamage;
 
-    private void UpdateSprite()
-    {
-        if (health < healthAtSecondDamage)
+        public override void Hit(int damage)
         {
-            GetComponent<SpriteRenderer>().sprite = secondDamage;
-        } else if (health < healthAtFirstDamage)
+            health -= damage;
+            if (health <= 0)
+            {
+                SoundManager.Instance.PlaySound(eatenAudioClip);
+                Destroy(gameObject);
+            }
+            else
+            {
+                UpdateSprite();
+            }
+        }
+
+        private void UpdateSprite()
         {
-            GetComponent<SpriteRenderer>().sprite = firstDamage;
+            if (health < healthAtSecondDamage)
+            {
+                GetComponent<SpriteRenderer>().sprite = secondDamage;
+            } else if (health < healthAtFirstDamage)
+            {
+                GetComponent<SpriteRenderer>().sprite = firstDamage;
+            }
         }
     }
 }
