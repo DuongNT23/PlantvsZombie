@@ -45,6 +45,7 @@ namespace Assets.Script.Sound
 
         public void PlayMusic(AudioClip clip, float t = 0)
         {
+            StopMusic();
             isUsingMainSource = true;
             if (clip == null)
             {
@@ -55,11 +56,10 @@ namespace Assets.Script.Sound
             _musicSource.Play();
         }
 
-        public float StopMusic()
+        public void StopMusic()
         {
-            var t = _musicSource.time;
             _musicSource.Stop();
-            return t;
+            _musicSource2.Stop();
         }
 
         public void SwapMusic(AudioClip clip)

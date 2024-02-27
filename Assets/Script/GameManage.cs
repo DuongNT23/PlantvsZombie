@@ -1,4 +1,5 @@
 using Assets.Script.Levels.SpawnData;
+using Assets.Script.Save;
 using Assets.Script.Sound;
 using TMPro;
 using UnityEngine;
@@ -171,6 +172,20 @@ namespace Assets.Script
 
         private void AfterWin()
         {
+            var levelData = LevelDataManager.Instance.GetLevelData();
+            var onComplete = levelData.onComplete;
+            if (onComplete != null)
+            {
+                var saveGameData = SaveGameManager.Instance.LoadGame();
+                var success = saveGameData.AddCompletedLevel(onComplete.levelUnlockId);
+                Debug.Log($"Add level is {success}");
+                SaveGameManager.Instance.SaveGame(saveGameData);
+                Debug.Log("Saved.");
+            }
+            else
+            {
+                Debug.LogWarning("No onComplete property.");
+            }
             SceneManager.LoadScene("StartScreen");
         }
 

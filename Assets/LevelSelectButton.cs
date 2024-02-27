@@ -9,6 +9,8 @@ namespace Assets
     {
         [SerializeField] private string levelPath;
         [SerializeField] private string levelName;
+        [SerializeField] public bool alwaysUnlocked = false;
+        [SerializeField] public int levelId;
         [SerializeField] private TextMeshProUGUI levelNameText;
         void Start()
         {

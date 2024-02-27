@@ -1,3 +1,4 @@
+using Assets.Script.Save;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,27 +7,20 @@ namespace Assets
     public class LevelSelectManager : MonoBehaviour
     {
         [SerializeField] private GameObject levelList;
-
         private Color PassedColor = new Color(0.35f, 0.8f, 0.5f);
 
-        [SerializeField] private int levelPassed;
         // Start is called before the first frame update
         void Start()
         {
+            SaveGameData data = SaveGameManager.Instance.LoadGame();
             var children = levelList.GetComponentsInChildren<LevelSelectButton>();
-            int i = 0;
             foreach (var child in children)
             {
                 var button = child.GetComponent<Button>();
-                button.interactable = true;
-                if (i < levelPassed)
+                if (child.alwaysUnlocked
+                    || data.IsLevelCompleted(child.levelId))
                 {
-                    child.GetComponent<Image>().color = PassedColor;
-                    i++;
-                }
-                else
-                {
-                    break;
+                    button.interactable = true;
                 }
             }
         }
