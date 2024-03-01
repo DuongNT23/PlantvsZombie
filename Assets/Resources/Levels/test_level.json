@@ -8,8 +8,8 @@
             "isLargeWave": false,
             "zombies": [
                 {
-                    "type": "normal",
-                    "amount": 1,
+                    "type": "door",
+                    "amount": 3,
                     "row": "random",
                     "spread": true
                 }

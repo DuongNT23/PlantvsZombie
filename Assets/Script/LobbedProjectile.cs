@@ -34,7 +34,7 @@ namespace Assets.Script
             }
         }
 
-        private bool TryHitTarget()
+        protected bool TryHitTarget()
         {
             bool hit = false;
             if (target == null)

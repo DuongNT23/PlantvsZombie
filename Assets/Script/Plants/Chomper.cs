@@ -43,6 +43,8 @@ namespace Assets.Script.Plants
             //TODO Make sure some zombies (ie giant one) can't be eaten
             if (true)
             {
+                //TODO fix this line
+                canEat = false;
                 Invoke(nameof(Eat),1);
             }
         }

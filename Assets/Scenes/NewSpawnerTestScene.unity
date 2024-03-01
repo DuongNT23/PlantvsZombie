@@ -2354,7 +2354,7 @@ Transform:
   m_GameObject: {fileID: 297466465}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.22, y: 0.27, z: 0}
+  m_LocalPosition: {x: -0.22, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5529,6 +5529,9 @@ MonoBehaviour:
     noSunDrops: 0
     background: 
     waves: []
+    onComplete:
+      levelUnlockId: 0
+      prize: 
   SpawnPoints:
   - {fileID: 1344454885}
   - {fileID: 578681643}
@@ -9361,6 +9364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 473546479}
   _effectSource: {fileID: 493127394}
+  _musicSource2: {fileID: 0}
 --- !u!4 &1992280033
 Transform:
   m_ObjectHideFlags: 0

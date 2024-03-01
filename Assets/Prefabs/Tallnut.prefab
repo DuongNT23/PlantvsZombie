@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1359591308651017336}
   - component: {fileID: 7819781454857037559}
-  - component: {fileID: 8786169896115373569}
-  - component: {fileID: 8281485464955950830}
-  - component: {fileID: 9155387498845902613}
+  - component: {fileID: 3361364042202426691}
+  - component: {fileID: 527817419914861789}
   m_Layer: 0
-  m_Name: SunFlower
+  m_Name: Tallnut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7025129746123423348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.65, y: -0.57, z: 0}
+  m_LocalPosition: {x: 2.505, y: -0.303, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 046ff69795d4f5640953ae5ea66124e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61be44f83d61a6b4195cbfd2dcf6373e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,21 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8786169896115373569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7025129746123423348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad5d40d4551f99140962ba28f7468211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 300
-  eatenAudioClip: {fileID: 8300000, guid: 94a1a34e1d770b8419093b8b04c27260, type: 3}
---- !u!61 &8281485464955950830
+--- !u!61 &3361364042202426691
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,20 +118,20 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96363634, y: 1.0727273}
+    oldSize: {x: 0.99, y: 1.46}
     newSize: {x: 1, y: 1.02}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96363634, y: 1.0727273}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9155387498845902613
+--- !u!114 &527817419914861789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,8 +140,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7025129746123423348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b556238d7f3d5c547afa82e067c1566a, type: 3}
+  m_Script: {fileID: 11500000, guid: 00d8036f269817f43ac07dcd21f4868a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunObject: {fileID: 4312392032582293603, guid: d76e7797dc0adce4ea0e6b7d0d9b0c84, type: 3}
-  cooldown: 22.5
+  health: 8000
+  eatenAudioClip: {fileID: 8300000, guid: 94a1a34e1d770b8419093b8b04c27260, type: 3}
+  firstDamage: {fileID: 21300000, guid: 571e464199b3b6340970869c534bfc02, type: 3}
+  secondDamage: {fileID: 21300000, guid: 30fd3603c562ffd45b3283987c6f1b2d, type: 3}
+  healthAtFirstDamage: 5333
+  healthAtSecondDamage: 2666
