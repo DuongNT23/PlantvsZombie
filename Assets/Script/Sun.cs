@@ -6,6 +6,7 @@ namespace Assets.Script
     {
         public float dropTpYPos;
         private float speed = .15f;
+        protected int amount = 25;
 
         [SerializeField] private AudioClip _sunCollectClip;
         // Start is called before the first frame update
@@ -13,7 +14,7 @@ namespace Assets.Script
         {
             //   transform.position = new Vector3(Random.Range(-4f, 8.35f), 6, 0);
             //   dropTpYPos = Random.Range(2f, -3f);
-            Destroy(gameObject, Random.Range(6f ,12f));
+            Destroy(gameObject, Random.Range(8f ,10f));
         }
 
         private void Update()
@@ -25,5 +26,15 @@ namespace Assets.Script
 
         }
 
+        public void SetAmount(int amount)
+        {
+            this.amount = amount;
+            this.gameObject.transform.localScale = Vector3.one * amount / 25;
+        }
+
+        public int GetAmount()
+        {
+            return amount;
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace Assets.Script
     public class PeaBullet : MonoBehaviour, IProjectile
     {
         public int damage;
-        public float speed = .8f;
+        public float speed = 1f;
         private bool hasCollided = false;
 
         [SerializeField] protected AudioClip _onPeaHitClip;
@@ -16,7 +16,7 @@ namespace Assets.Script
         {
             Destroy(gameObject,10);
         }
-        private void Update()
+        private void FixedUpdate()
         {
             Move();
         }

@@ -159,4 +159,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunObject: {fileID: 4312392032582293603, guid: d76e7797dc0adce4ea0e6b7d0d9b0c84, type: 3}
-  cooldown: 22.5
+  initialCooldown: 7
+  cooldown: 24

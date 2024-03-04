@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2752701490530020669}
   - component: {fileID: 6739569181112834623}
+  - component: {fileID: 6418766292584748277}
   - component: {fileID: -8573660910499539728}
   - component: {fileID: -3802900993914008038}
-  - component: {fileID: -437237836659641320}
   m_Layer: 0
-  m_Name: snow_pea
+  m_Name: puff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 75de85d45822f3f47933574baa02baa9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0564c091fe980a343856616207e197ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,6 +87,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6418766292584748277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4325239852757689461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69de1aa46d9fe3e4394c9c5985ae546c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  speed: 4
+  _onPeaHitClip: {fileID: 8300000, guid: 0ae8b6763044bd34495f11df0d518b83, type: 3}
 --- !u!50 &-8573660910499539728
 Rigidbody2D:
   serializedVersion: 4
@@ -150,7 +165,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.28, y: 0.28}
+    oldSize: {x: 0.32, y: 0.27}
     newSize: {x: 0.28, y: 0.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -159,18 +174,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 0.28}
   m_EdgeRadius: 0
---- !u!114 &-437237836659641320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4325239852757689461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa927302a9e3d0a4aa46a6b19b6c4243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
-  speed: 4
-  _onPeaHitClip: {fileID: 8300000, guid: 0ae8b6763044bd34495f11df0d518b83, type: 3}

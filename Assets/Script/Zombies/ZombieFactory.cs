@@ -11,6 +11,8 @@ namespace Assets.Script.Zombies
         [SerializeField] private Accessory cone;
         [SerializeField] private Accessory bucket;
         [SerializeField] private Accessory screenDoor;
+        [SerializeField] private Accessory newspaper;
+        [SerializeField] private Accessory sunHat;
         private ZombieFactory(){}
 
         private Dictionary<string, Func<Vector3, Zombie>> functionDictionary =
@@ -22,6 +24,8 @@ namespace Assets.Script.Zombies
             functionDictionary.Add("conehead", InstantiateConeheadZombie);
             functionDictionary.Add("buckethead", InstantiateBucketheadZombie);
             functionDictionary.Add("door",InstantiateScreenDoorZombie);
+            functionDictionary.Add("newspaper",InstantiateNewspaperZombie);
+            functionDictionary.Add("sunhat", InstantiateSunHatZombie);
         }
 
         public static ZombieFactory Instance;
@@ -44,7 +48,6 @@ namespace Assets.Script.Zombies
 
         public Zombie InstantiateConeheadZombie(Vector3 location)
         {
-            Debug.Log("Requested conehead");
             var zombie = InstantiateBasicZombie(location);
             zombie.SetAccessory(cone);
             return zombie;
@@ -71,6 +74,21 @@ namespace Assets.Script.Zombies
         {
             var zombie = InstantiateBasicZombie(location);
             zombie.SetAccessory(screenDoor);
+            return zombie;
+        }
+
+        public Zombie InstantiateNewspaperZombie(Vector3 location)
+        {
+            var zombie = InstantiateBasicZombie(location);
+            zombie.SetHealth(270);
+            zombie.SetAccessory(newspaper);
+            return zombie;
+        }
+
+        public Zombie InstantiateSunHatZombie(Vector3 location)
+        {
+            var zombie = InstantiateBasicZombie(location);
+            zombie.SetAccessory(sunHat);
             return zombie;
         }
     }

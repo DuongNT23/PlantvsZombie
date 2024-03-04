@@ -5,15 +5,16 @@ namespace Assets.Script.Plants
     public class SunFlower : MonoBehaviour
     {
         public GameObject sunObject;
-
+        public float initialCooldown;
         public float cooldown;
 
-        private void Start()
+        protected virtual void Start()
         {
-            InvokeRepeating("SpawnSun", cooldown, cooldown);
+            Invoke(nameof(SpawnSun), initialCooldown);
+            InvokeRepeating(nameof(SpawnSun), initialCooldown + cooldown, cooldown);
         }
 
-        void SpawnSun()
+        protected virtual void SpawnSun()
         {
             GameObject mySun =  Instantiate(sunObject, new Vector3(transform.position.x, transform.position.y, 0 ), Quaternion.identity);
             mySun.GetComponent<Sun>().dropTpYPos = transform.position.y  - 1 ;

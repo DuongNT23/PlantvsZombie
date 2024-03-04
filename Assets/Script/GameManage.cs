@@ -139,8 +139,8 @@ namespace Assets.Script
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                
-                    suns += 25;
+                    var sun = sunHit.collider.GetComponent<Sun>();
+                    suns += sun.GetAmount();
                     Destroy(sunHit.collider.gameObject);
                     SoundManager.Instance.PlaySound(_sunCollectClip);
                 }

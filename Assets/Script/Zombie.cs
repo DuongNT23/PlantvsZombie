@@ -86,5 +86,7 @@ namespace Assets.Script
             this.accessory = Instantiate(accessory, hatLocation.position + accessory.dislodgeSprite, Quaternion.identity);
             this.accessory.transform.SetParent(this.transform);
         }
+
+        
     }
 }

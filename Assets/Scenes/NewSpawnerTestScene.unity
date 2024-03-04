@@ -2925,6 +2925,8 @@ MonoBehaviour:
   cone: {fileID: -4823427993656358146, guid: 5530caf4aceed9e43b31c7b57d011e22, type: 3}
   bucket: {fileID: -4823427993656358146, guid: 65e77817369830c4db1c45dd3d0a3e42, type: 3}
   screenDoor: {fileID: 8229568615759849826, guid: fd770e21f8bc9a5498aa6e4b4b0fae39, type: 3}
+  newspaper: {fileID: -2553050729504401791, guid: f24cc73ee1e061b46a56cfddf0993d35, type: 3}
+  sunHat: {fileID: 3045188731127278831, guid: e3dfc459267a2ad44b0b3bc52516c9a2, type: 3}
 --- !u!4 &471203876
 Transform:
   m_ObjectHideFlags: 0

@@ -19,6 +19,9 @@ namespace Assets.Script.Zombies
 
         //Unique boolean for freezing/chilling
         protected bool isChilled = false;
+        //Unique boolean for angered zombie
+        protected bool isAngry = false;
+        protected bool isPreAngry = false;
         //For helmets, doors, newspaper,...
         public Accessory accessory;
 
@@ -29,6 +32,14 @@ namespace Assets.Script.Zombies
             {
                 finalSpeed /= 2;
             }
+            if (isPreAngry)
+            {
+                finalSpeed = 0;
+            }
+            else if (isAngry)
+            {
+                finalSpeed *= 2;
+            }
             return finalSpeed;
         }
 
@@ -38,6 +49,10 @@ namespace Assets.Script.Zombies
             if (isChilled)
             {
                 finalEatCooldown *= 2;
+            }
+            if (isAngry)
+            {
+                finalEatCooldown /= 2;
             }
             return finalEatCooldown;
         }
@@ -60,6 +75,23 @@ namespace Assets.Script.Zombies
                 isChilled = false;
                 GetComponent<SpriteRenderer>().color = Color.white;
             }
+        }
+
+        public void TriggerAnger()
+        {
+            isPreAngry = true;
+            Invoke(nameof(Anger),2);
+        }
+
+        private void Anger()
+        {
+            isPreAngry = false;
+            isAngry = true;
+        }
+
+        public void SetHealth(int health)
+        {
+            this.health = health;
         }
     }
 }
