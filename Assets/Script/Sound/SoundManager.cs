@@ -62,6 +62,19 @@ namespace Assets.Script.Sound
             _musicSource2.Stop();
         }
 
+        public void PauseMusic()
+        {
+            _musicSource.Pause();
+            _musicSource2.Pause();
+        }
+
+        public void UnpauseMusic()
+        {
+            _musicSource.Play();
+            _musicSource2.Play();
+        }
+
+
         public void SwapMusic(AudioClip clip)
         {
             if (isUsingMainSource)

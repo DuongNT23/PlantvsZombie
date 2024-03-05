@@ -31,7 +31,7 @@ namespace Assets.Script
             GetComponent<Button>().onClick.AddListener(BuyPlant);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             var current = Time.time;
             if (current <= endCooldown) //Is under cooldown

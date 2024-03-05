@@ -5,7 +5,7 @@ namespace Assets.Script
     public class Sun : MonoBehaviour
     {
         public float dropTpYPos;
-        private float speed = .15f;
+        private float speed = .8f;
         protected int amount = 25;
 
         [SerializeField] private AudioClip _sunCollectClip;
@@ -17,7 +17,7 @@ namespace Assets.Script
             Destroy(gameObject, Random.Range(8f ,10f));
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (transform.position.y > dropTpYPos)
             {

@@ -27,11 +27,16 @@ namespace Assets.Script
         [SerializeField] private AudioClip _levelWinClip;
         [SerializeField] private AudioClip _plantAudioClip;
         [SerializeField] private SpriteRenderer backgroundRenderer;
+        [SerializeField] private Canvas canvas;
 
         //This is for dynamically load plant in
         //TODO Load plants dynamically in from select screen
         [SerializeField] private GameObject[] plantSlots;
         [SerializeField] private GameObject[] plantSelected;
+
+        [SerializeField] private PauseScreen pauseScreen;
+        private PauseScreen activePauseScreen = null;
+        private bool isPaused = false;
         public void BuyPlant(GameObject plant, Sprite sprite, int cost, PlantScript plantScript)
         {
             isUsingShovel = false;
@@ -43,6 +48,9 @@ namespace Assets.Script
 
         private void Start()
         {
+            GameStateManager.Instance.AllowPausing();
+            GameStateManager.Instance.GamePaused.AddListener(GamePaused);
+            GameStateManager.Instance.GameUnPaused.AddListener(GameResumed);
             LevelData levelData = LevelDataManager.Instance.GetLevelData();
             suns = levelData.startingSun;
             //Background
@@ -90,6 +98,10 @@ namespace Assets.Script
 
         private void Update()
         {
+            if (isPaused)
+            {
+                return;
+            }
             sunText.text = suns.ToString();
 
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, tileMask);
@@ -186,12 +198,32 @@ namespace Assets.Script
             {
                 Debug.LogWarning("No onComplete property.");
             }
+            GameStateManager.Instance.DenyPausing();
             SceneManager.LoadScene("StartScreen");
         }
 
         public void TurnOnHordeMusic()
         {
             SoundManager.Instance.SwapMusic(_levelHordeMusic);
+        }
+
+        private void GamePaused()
+        {
+            if (activePauseScreen)
+            {
+                Destroy(activePauseScreen.gameObject);
+            }
+            isPaused = true;
+            activePauseScreen = Instantiate(pauseScreen, canvas.transform);
+        }
+
+        private void GameResumed()
+        {
+            if (activePauseScreen)
+            {
+                Destroy(activePauseScreen.gameObject);
+            }
+            isPaused = false;
         }
     }
 }
