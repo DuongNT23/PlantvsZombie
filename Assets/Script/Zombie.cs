@@ -17,7 +17,6 @@ namespace Assets.Script
             range = type.range; 
             speed = type.speed;
             eatCooldown = type.eatCooldown;
-            GetComponent<SpriteRenderer>().sprite = type.sprite;
         }
         private void Update()
         {

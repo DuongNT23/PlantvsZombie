@@ -8,6 +8,7 @@ namespace Assets.Script.Zombies
     public class ZombieFactory : MonoBehaviour
     {
         [SerializeField] private Zombie basicZombie;
+        [SerializeField] private Zombie impZombie;
         [SerializeField] private Accessory cone;
         [SerializeField] private Accessory bucket;
         [SerializeField] private Accessory screenDoor;
@@ -26,6 +27,7 @@ namespace Assets.Script.Zombies
             functionDictionary.Add("door",InstantiateScreenDoorZombie);
             functionDictionary.Add("newspaper",InstantiateNewspaperZombie);
             functionDictionary.Add("sunhat", InstantiateSunHatZombie);
+            functionDictionary.Add("imp", InstantiateImpZombie);
         }
 
         public static ZombieFactory Instance;
@@ -90,6 +92,11 @@ namespace Assets.Script.Zombies
             var zombie = InstantiateBasicZombie(location);
             zombie.SetAccessory(sunHat);
             return zombie;
+        }
+
+        public Zombie InstantiateImpZombie(Vector3 location)
+        {
+            return Instantiate(impZombie, location, Quaternion.identity);
         }
     }
 }
