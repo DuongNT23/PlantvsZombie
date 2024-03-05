@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Assets.Script;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,8 +24,28 @@ namespace Assets
             {
                 tab.plantLimit = levelData.plantLimit;
             }
+
+            if (levelData.denySunProductionPlants)
+            {
+                DenySunProductionPlants();
+            }
             startButton.onClick.AddListener(StartLevel);
             DenyBegin();
+        }
+
+        private void DenySunProductionPlants()
+        {
+            Debug.Log("Denying sun producers");
+            PlantScriptSelect[] selects = FindObjectsOfType<PlantScriptSelect>();
+            Debug.Log($"Found {selects.Length}.");
+            foreach (var select in selects)
+            {
+                if (select.isSunProductionPlant)
+                {
+                    Debug.Log($"Disabling {select.name}");
+                    select.PermanentlyDisable();
+                }
+            }
         }
 
         public void AllowBegin()

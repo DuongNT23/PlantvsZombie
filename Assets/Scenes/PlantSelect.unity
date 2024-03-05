@@ -515,6 +515,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 398316332}
   plantSprite: {fileID: 21300000, guid: b544f9e5a338bb44c9faf2574494cf32, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &105741302
 MonoBehaviour:
@@ -646,6 +647,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 1396085952}
   plantSprite: {fileID: 21300000, guid: d42e9eb84af2ec44995c0696485c24eb, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &214606133
 MonoBehaviour:
@@ -852,6 +854,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 302594159}
   plantSprite: {fileID: 21300000, guid: 61be44f83d61a6b4195cbfd2dcf6373e, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &223767318
 MonoBehaviour:
@@ -2007,6 +2010,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 1116141728}
   plantSprite: {fileID: 21300000, guid: 004fa44f6a89cc743abd75acf129a224, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &585589567
 MonoBehaviour:
@@ -2516,6 +2520,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 582543635}
   plantSprite: {fileID: 21300000, guid: 28ae10199afacb74d910467b9333a7b4, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &680937515
 MonoBehaviour:
@@ -3006,6 +3011,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 275115363}
   plantSprite: {fileID: 21300000, guid: 5528100cd521fe4418db8af96de4a301, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &864226937
 MonoBehaviour:
@@ -3137,6 +3143,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 1013309456}
   plantSprite: {fileID: 21300000, guid: b0810af04523eeb4eb454cf421c70899, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &904026560
 MonoBehaviour:
@@ -3221,7 +3228,7 @@ GameObject:
   - component: {fileID: 904862040}
   - component: {fileID: 904862039}
   m_Layer: 5
-  m_Name: Puffshroom (1)
+  m_Name: Sunshroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3268,6 +3275,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 847909098}
   plantSprite: {fileID: 21300000, guid: 97947ca0a0e3a6c48849c92c1ec68da5, type: 3}
+  isSunProductionPlant: 1
   isAddMode: 1
 --- !u!114 &904862040
 MonoBehaviour:
@@ -3854,6 +3862,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 574055311}
   plantSprite: {fileID: 21300000, guid: b4a572aa4cb208b4587cbafc1580e2f3, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &1091404238
 MonoBehaviour:
@@ -4132,6 +4141,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 1428338610}
   plantSprite: {fileID: 21300000, guid: f6cb3fb589dd12045981f84de6c329fe, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &1131380697
 MonoBehaviour:
@@ -5683,6 +5693,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 2080796809}
   plantSprite: {fileID: 21300000, guid: 22ea43e528c171c41b0a7b86492935c4, type: 3}
+  isSunProductionPlant: 0
   isAddMode: 1
 --- !u!114 &1900664833
 MonoBehaviour:
@@ -6447,6 +6458,7 @@ MonoBehaviour:
   copy: {fileID: 0}
   plantImage: {fileID: 1664210716680080020}
   plantSprite: {fileID: 21300000, guid: 046ff69795d4f5640953ae5ea66124e5, type: 3}
+  isSunProductionPlant: 1
   isAddMode: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

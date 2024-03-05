@@ -355,6 +355,7 @@ MonoBehaviour:
   priceText: {fileID: 4795939485633244659}
   cooldownText: {fileID: 762553270069147156}
   cooldown: 7.5
+  isSunProductionPlant: 1
 --- !u!114 &2398336146096898424
 MonoBehaviour:
   m_ObjectHideFlags: 0

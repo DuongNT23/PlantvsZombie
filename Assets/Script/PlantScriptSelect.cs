@@ -18,6 +18,9 @@ namespace Assets.Script
         public PlantScriptSelect copy;
         [SerializeField] private Image plantImage;
         [SerializeField] private Sprite plantSprite;
+        [SerializeField] public bool isSunProductionPlant = false;
+        
+        private bool isPermanentlyDisabled = false;
 
         public bool isAddMode = true;
         public override void Start()
@@ -28,6 +31,10 @@ namespace Assets.Script
 
         private void OnClick()
         {
+            if (isPermanentlyDisabled)
+            {
+                return;
+            }
             if (isAddMode)
             {
                 if (isEnabled)
@@ -49,6 +56,12 @@ namespace Assets.Script
         {
             priceText.text = $"{price}";
             plantImage.sprite = plantSprite;
+        }
+
+        public void PermanentlyDisable()
+        {
+            isPermanentlyDisabled = true;
+            Disable();
         }
     }
 }

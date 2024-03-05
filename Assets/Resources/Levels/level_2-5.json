@@ -3,6 +3,7 @@
     "startingSun": 0,
     "noSunDrops": true,
     "background": "Background/Night",
+    "denySunProductionPlants": true,
     "onComplete": {
         "levelUnlockId": 15
     },

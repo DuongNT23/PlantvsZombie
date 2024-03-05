@@ -24,6 +24,10 @@ namespace Assets.Script
         public void Disable()
         {
             isEnabled = false;
+            if (images == null)
+            {
+                images = gameObject.GetComponentsInChildren<Image>();
+            }
             foreach (var image in images)
             {
                 image.color = Color.gray;
