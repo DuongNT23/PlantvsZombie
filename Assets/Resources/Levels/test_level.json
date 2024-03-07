@@ -9,7 +9,18 @@
             "zombies": [
                 {
                     "type": "door",
-                    "amount": 10,
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": false,
+            "zombies": [
+                {
+                    "type": "buckethead",
+                    "amount": 2,
                     "row": "random",
                     "spread": true
                 }

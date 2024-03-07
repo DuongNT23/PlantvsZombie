@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.Script.Constants;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Script.Zombies.Accessories
@@ -21,11 +22,31 @@ namespace Assets.Script.Zombies.Accessories
         [SerializeField] private int healthUntilSecondDamaged;
         [SerializeField] public Vector3 dislodgeSprite;
 
+
         private SpriteRenderer renderer;
+        private Vector3 destination;
+        private bool canMove = false;
+        private float speed = 0.02f;
 
         private void Start()
         {
             renderer = gameObject.GetComponent<SpriteRenderer>();
+        }
+
+        private void Update()
+        {
+            if (canMove)
+            {
+                var gap = (destination - transform.position);
+                if (gap.magnitude <= 0.5)
+                {
+                    transform.position = destination;
+                    canMove = false;
+                    return;
+                }
+                var move = gap.normalized * speed;
+                transform.position += move;
+            }
         }
 
         /// <summary>
@@ -62,7 +83,7 @@ namespace Assets.Script.Zombies.Accessories
         }
 
 
-        public void RemoveAccessory(Zombie owner)
+        public void RemoveAccessory(Zombie owner, bool doNotDestroy = false)
         {
             if (this != owner.accessory)
             {
@@ -71,7 +92,10 @@ namespace Assets.Script.Zombies.Accessories
             }
             owner.accessory = null;
             OnAccessoryRemoved(owner);
-            Destroy(gameObject);
+            if (!doNotDestroy)
+            {
+                Destroy(gameObject);
+            }
         }
 
         protected virtual void OnAccessoryRemoved(Zombie owner)
@@ -82,6 +106,12 @@ namespace Assets.Script.Zombies.Accessories
         public bool isDead()
         {
             return health <= 0;
+        }
+
+        public void MoveTowards(Vector3 location)
+        {
+            destination = location;
+            canMove = true;
         }
     }
 }
