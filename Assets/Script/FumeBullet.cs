@@ -17,7 +17,7 @@ namespace Assets.Script
         public float speed = 1f;
         private float xTarget;
 
-        private List<Zombie> zombieCollied = new List<Zombie>();
+        private readonly List<Zombie> zombieCollied = new();
 
         private void Start()
         {

@@ -10,8 +10,6 @@ namespace Assets
     public class LevelSelectManager : MonoBehaviour
     {
         [SerializeField] private GameObject levelList;
-        private Color PassedColor = new Color(0.35f, 0.8f, 0.5f);
-
         // Start is called before the first frame update
         void Start()
         {
@@ -26,12 +24,6 @@ namespace Assets
                     button.interactable = true;
                 }
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
         }
 
         public void UnlockAll()

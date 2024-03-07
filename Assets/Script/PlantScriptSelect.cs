@@ -18,7 +18,7 @@ namespace Assets.Script
         public PlantScriptSelect copy;
         [SerializeField] private Image plantImage;
         [SerializeField] private Sprite plantSprite;
-        [SerializeField] public bool isSunProductionPlant = false;
+        public bool isSunProductionPlant = false;
         
         private bool isPermanentlyDisabled = false;
 

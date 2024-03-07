@@ -15,9 +15,6 @@ namespace Assets.Script
         private Vector3 targetPosition;
 
         private int frame = 0;
-        private void Start()
-        {
-        }
 
         private void Update()
         {

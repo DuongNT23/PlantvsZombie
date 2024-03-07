@@ -20,17 +20,17 @@ namespace Assets.Script.Zombies.Accessories
 
         [SerializeField] private int healthUntilFirstDamaged;
         [SerializeField] private int healthUntilSecondDamaged;
-        [SerializeField] public Vector3 dislodgeSprite;
+        public Vector3 dislodgeSprite;
 
 
-        private SpriteRenderer renderer;
+        private SpriteRenderer spriteRenderer;
         private Vector3 destination;
         private bool canMove = false;
-        private float speed = 0.02f;
+        private readonly float speed = 0.02f;
 
         private void Start()
         {
-            renderer = gameObject.GetComponent<SpriteRenderer>();
+            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         }
 
         private void Update()
@@ -75,10 +75,10 @@ namespace Assets.Script.Zombies.Accessories
         {
             if (health <= healthUntilSecondDamaged)
             {
-                renderer.sprite = secondDamagedSprite;
+                spriteRenderer.sprite = secondDamagedSprite;
             } else if (health <= healthUntilFirstDamaged)
             {
-                renderer.sprite = firstDamagedSprite;
+                spriteRenderer.sprite = firstDamagedSprite;
             }
         }
 
@@ -103,7 +103,7 @@ namespace Assets.Script.Zombies.Accessories
 
         }
 
-        public bool isDead()
+        public bool IsDead()
         {
             return health <= 0;
         }

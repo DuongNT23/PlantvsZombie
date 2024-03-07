@@ -63,7 +63,7 @@ namespace Assets.Script
             if (accessory != null)
             {
                 damage = accessory.Hit(damage,damageType);
-                if (accessory.isDead())
+                if (accessory.IsDead())
                 {
                     accessory.RemoveAccessory(this);
                 }

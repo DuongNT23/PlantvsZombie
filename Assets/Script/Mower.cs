@@ -8,10 +8,7 @@ namespace Assets.Script
         public float speed = .4f;
         private bool activated = false;
         [SerializeField] private AudioClip mowing;
-        private void Start()
-        {
-            //Destroy(gameObject,10);
-        }
+
         private void Update()
         {
             if (activated)

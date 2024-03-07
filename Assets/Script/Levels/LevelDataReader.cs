@@ -13,7 +13,7 @@ namespace Assets.Script.Levels
         public LevelData GetLevelData(string levelJsonPath)
         {
             TextAsset jsonFile = Resources.Load<TextAsset>(levelJsonPath);
-            if (jsonFile == null)
+            if (jsonFile)
             {
                 throw new Exception("Level Data does not exists!");
             }

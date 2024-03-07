@@ -11,7 +11,6 @@ namespace Assets.Script.Plants
         private bool canShoot;
         public float range;
         public LayerMask shootMask;
-        private GameObject target;
 
         [SerializeField] private AudioClip _shootClip;
 
@@ -20,14 +19,13 @@ namespace Assets.Script.Plants
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, range, shootMask);
             if (hit.collider)
             {
-                target = hit.collider.gameObject;
                 Shoot();
             }
         }
 
         private void Start()
         {
-            Invoke("ResetCooldown", cooldown);
+            Invoke(nameof(ResetCooldown), cooldown);
         }
 
         private void ResetCooldown()
@@ -42,7 +40,7 @@ namespace Assets.Script.Plants
                 return;
             }
             canShoot = false;
-            Invoke("ResetCooldown", cooldown);
+            Invoke(nameof(ResetCooldown), cooldown);
 
             GameObject myBullet = Instantiate(bullet, shootOrigin.position, Quaternion.identity);
             SoundManager.Instance.PlaySound(_shootClip);

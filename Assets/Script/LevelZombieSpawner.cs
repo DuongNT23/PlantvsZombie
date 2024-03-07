@@ -27,7 +27,7 @@ namespace Assets.Script
 
         private WaveSpawnData tempData;
 
-        private Dictionary<string, int> _zombieIndexes = new Dictionary<string, int>()
+        private readonly Dictionary<string, int> _zombieIndexes = new()
         {
             {"normal",0},
             {"conehead",1},
@@ -62,13 +62,7 @@ namespace Assets.Script
             LevelData = LevelDataManager.Instance.GetLevelData();
             Debug.Log($"Wave Count: {LevelData.waves.Count}");
             progressBar.SetMax(LevelData.waves.Count - 1);
-            Invoke("BeginSpawning",GracePeriod);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            Invoke(nameof(BeginSpawning),GracePeriod);
         }
 
         void BeginSpawning()
@@ -121,7 +115,7 @@ namespace Assets.Script
             SpawnZombies(waveData);
             _waveTimer = WaveGracePeriod;
             _currentWave++;
-            InvokeRepeating("CheckNextSpawn", WaveGracePeriod, 1);
+            InvokeRepeating(nameof(CheckNextSpawn), WaveGracePeriod, 1);
             if (isFinalWave)
             {
                 SoundManager.Instance.PlaySound(_finalWaveClip);
@@ -172,7 +166,7 @@ namespace Assets.Script
 
         private void SpawnZombiesEvenly(List<ZombieSpawnData> zombies)
         {
-            List<int> spawnPositions = new List<int>() { 0, 1, 2, 3, 4 };
+            List<int> spawnPositions = new () { 0, 1, 2, 3, 4 };
             foreach (var zombie in zombies)
             {
                 for (int i = 0; i < zombie.amount; i++)
