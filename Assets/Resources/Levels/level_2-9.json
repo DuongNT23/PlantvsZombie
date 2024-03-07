@@ -4,7 +4,7 @@
     "noSunDrops": true,
     "background": "Background/Night",
     "onComplete": {
-        "levelUnlockId": 18
+        "levelUnlockId": 19
     },
     "waves": [
         {
@@ -22,17 +22,6 @@
             "isLargeWave": false,
             "zombies": [
                 {
-                    "type": "sunhat",
-                    "amount": 1,
-                    "row": "random",
-                    "spread": true
-                }
-            ]
-        },
-        {
-            "isLargeWave": false,
-            "zombies": [
-                {
                     "type": "normal",
                     "amount": 1,
                     "row": "random",
@@ -44,7 +33,7 @@
             "isLargeWave": false,
             "zombies": [
                 {
-                    "type": "door",
+                    "type": "sunhat",
                     "amount": 1,
                     "row": "random",
                     "spread": true
@@ -56,13 +45,35 @@
             "zombies": [
                 {
                     "type": "sunhat",
-                    "amount": 2,
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": false,
+            "zombies": [
+                {
+                    "type": "sunhat",
+                    "amount": 1,
                     "row": "random",
                     "spread": true
                 },
                 {
                     "type": "normal",
                     "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 2,
                     "row": "random",
                     "spread": true
                 }
@@ -78,19 +89,13 @@
                     "spread": true
                 },
                 {
-                    "type": "sunhat",
-                    "amount": 1,
-                    "row": "random",
-                    "spread": true
-                },
-                {
-                    "type": "door",
-                    "amount": 1,
-                    "row": "random",
-                    "spread": true
-                },
-                {
                     "type": "conehead",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "newspaper",
                     "amount": 1,
                     "row": "random",
                     "spread": true
@@ -108,6 +113,35 @@
                 },
                 {
                     "type": "door",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "sunhat",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 4,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "sunhat",
                     "amount": 2,
                     "row": "random",
                     "spread": true
@@ -130,8 +164,8 @@
                     "spread": true
                 },
                 {
-                    "type": "buckethead",
-                    "amount": 1,
+                    "type": "sunhat",
+                    "amount": 2,
                     "row": "random",
                     "spread": true
                 }
@@ -147,37 +181,14 @@
                     "spread": true
                 },
                 {
-                    "type": "door",
-                    "amount": 2,
-                    "row": "random",
-                    "spread": true
-                },
-                {
                     "type": "buckethead",
                     "amount": 1,
                     "row": "random",
                     "spread": true
-                }
-            ]
-        },
-        {
-            "isLargeWave": false,
-            "zombies": [
+                },
                 {
                     "type": "conehead",
-                    "amount": 3,
-                    "row": "random",
-                    "spread": true
-                },
-                {
-                    "type": "door",
                     "amount": 1,
-                    "row": "random",
-                    "spread": true
-                },
-                {
-                    "type": "buckethead",
-                    "amount": 2,
                     "row": "random",
                     "spread": true
                 }
@@ -188,19 +199,25 @@
             "zombies": [
                 {
                     "type": "normal",
-                    "amount": 4,
-                    "row": "random",
-                    "spread": true
-                },
-                {
-                    "type": "conehead",
-                    "amount": 3,
+                    "amount": 6,
                     "row": "random",
                     "spread": true
                 },
                 {
                     "type": "buckethead",
-                    "amount": 3,
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "newspaper",
+                    "amount": 1,
                     "row": "random",
                     "spread": true
                 }
@@ -211,6 +228,18 @@
             "zombies": [
                 {
                     "type": "normal",
+                    "amount": 6,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "sunhat",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
                     "amount": 1,
                     "row": "random",
                     "spread": true
@@ -223,13 +252,140 @@
                 },
                 {
                     "type": "door",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 8,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 10,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "newspaper",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "door",
+                    "amount": 1,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 8,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
                     "amount": 4,
                     "row": "random",
                     "spread": true
                 },
                 {
                     "type": "buckethead",
-                    "amount": 4,
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "door",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": false,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 10,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 5,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "door",
+                    "amount": 2,
+                    "row": "random",
+                    "spread": true
+                }
+            ]
+        },
+        {
+            "isLargeWave": true,
+            "zombies": [
+                {
+                    "type": "normal",
+                    "amount": 15,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "conehead",
+                    "amount": 7,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "buckethead",
+                    "amount": 3,
+                    "row": "random",
+                    "spread": true
+                },
+                {
+                    "type": "door",
+                    "amount": 2,
                     "row": "random",
                     "spread": true
                 }

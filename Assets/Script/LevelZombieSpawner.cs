@@ -4,6 +4,7 @@ using Assets.Script.Sound;
 using Assets.Script.Zombies;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 namespace Assets.Script
@@ -22,6 +23,7 @@ namespace Assets.Script
         [SerializeField] private WarningText _warningText;
         [SerializeField] private List<ZombieType> _zombieTypes;
         [SerializeField] private GameManage manager;
+        [SerializeField] private LevelProgressBar progressBar;
 
         private WaveSpawnData tempData;
 
@@ -59,6 +61,7 @@ namespace Assets.Script
         {
             LevelData = LevelDataManager.Instance.GetLevelData();
             Debug.Log($"Wave Count: {LevelData.waves.Count}");
+            progressBar.SetMax(LevelData.waves.Count - 1);
             Invoke("BeginSpawning",GracePeriod);
         }
 
@@ -70,6 +73,7 @@ namespace Assets.Script
 
         void BeginSpawning()
         {
+            progressBar.gameObject.SetActive(true);
             Debug.Log("The zombies are coming.");
             SoundManager.Instance.PlaySound(_firstWaveClip);
             StartNextWave();
@@ -78,7 +82,6 @@ namespace Assets.Script
         void StartNextWave()
         {
             Debug.Log($"Attempting to start wave {_currentWave}");
-            Debug.Log($"Wave count = {LevelData.waves.Count}");
             if (_currentWave == LevelData.waves.Count)
             {
                 TryWin();
@@ -88,6 +91,7 @@ namespace Assets.Script
                 Debug.Log("Final Wave");
                 isFinalWave = true;
             }
+            progressBar.SetValue(_currentWave);
             var waveData = LevelData.waves[_currentWave];
             if (waveData.isLargeWave)
             {

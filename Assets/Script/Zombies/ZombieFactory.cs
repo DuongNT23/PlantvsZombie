@@ -14,6 +14,8 @@ namespace Assets.Script.Zombies
         [SerializeField] private Accessory screenDoor;
         [SerializeField] private Accessory newspaper;
         [SerializeField] private Accessory sunHat;
+
+        public bool InvisiGhoulMode = false;
         private ZombieFactory(){}
 
         private Dictionary<string, Func<Vector3, Zombie>> functionDictionary =
@@ -45,7 +47,15 @@ namespace Assets.Script.Zombies
 
         public Zombie InstantiateBasicZombie(Vector3 location)
         {
-            return Instantiate(basicZombie,location,Quaternion.identity);
+            var z = Instantiate(basicZombie,location,Quaternion.identity);
+            if (InvisiGhoulMode)
+            {
+                var spriteRenderer = z.GetComponent<SpriteRenderer>();
+                var color = spriteRenderer.color;
+                color.a = 0;
+                spriteRenderer.color = color;
+            }
+            return z;
         }
 
         public Zombie InstantiateConeheadZombie(Vector3 location)
@@ -96,7 +106,15 @@ namespace Assets.Script.Zombies
 
         public Zombie InstantiateImpZombie(Vector3 location)
         {
-            return Instantiate(impZombie, location, Quaternion.identity);
+            var z = Instantiate(impZombie, location, Quaternion.identity);
+            if (InvisiGhoulMode)
+            {
+                var spriteRenderer = z.GetComponent<SpriteRenderer>();
+                var color = spriteRenderer.color;
+                color.a = 0;
+                spriteRenderer.color = color;
+            }
+            return z;
         }
     }
 }

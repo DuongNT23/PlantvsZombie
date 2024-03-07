@@ -1,6 +1,7 @@
 using Assets.Script.Levels.SpawnData;
 using Assets.Script.Save;
 using Assets.Script.Sound;
+using Assets.Script.Zombies;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -67,7 +68,9 @@ namespace Assets.Script
                 }
             
             }
-        
+            //InvisiGhoul
+            ZombieFactory.Instance.InvisiGhoulMode = levelData.invisiGhoul;
+
             var selections = PlantSelectDataHandler.Instance.PlantSelections;
             if (selections == null || selections.Length == 0)
             {

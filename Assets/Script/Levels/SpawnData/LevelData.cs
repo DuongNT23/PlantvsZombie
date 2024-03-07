@@ -16,5 +16,6 @@ namespace Assets.Script.Levels.SpawnData
         public List<WaveSpawnData> waves;
         public LevelCompletionInfo onComplete;
         public bool denySunProductionPlants;
+        public bool invisiGhoul;
     }
 }

@@ -63,7 +63,10 @@ namespace Assets.Script.Zombies
             if (!isChilled)
             {
                 isChilled = true;
-                GetComponent<SpriteRenderer>().color = chilledColor;
+                var a = GetComponent<SpriteRenderer>().color.a;
+                var color = chilledColor;
+                color.a = a;
+                GetComponent<SpriteRenderer>().color = color;
             }
             Invoke(nameof(Unchill), 10);
         }
@@ -73,7 +76,10 @@ namespace Assets.Script.Zombies
             if (isChilled)
             {
                 isChilled = false;
-                GetComponent<SpriteRenderer>().color = Color.white;
+                var a = GetComponent<SpriteRenderer>().color.a;
+                var color = Color.white;
+                color.a = a;
+                GetComponent<SpriteRenderer>().color = color;
             }
         }
 

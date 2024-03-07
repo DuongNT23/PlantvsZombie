@@ -1,5 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
 using Assets.Script.Save;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets
@@ -31,6 +34,13 @@ namespace Assets
         
         }
 
+        public void UnlockAll()
+        {
+            SaveGameData data = SaveGameManager.Instance.LoadGame();
+            data.UnlockedLevels = Enumerable.Range(0, 50).ToList();
+            SaveGameManager.Instance.SaveGame(data);
+            SceneManager.LoadScene("LevelSelectScreen");
+        }
     
     }
 }
