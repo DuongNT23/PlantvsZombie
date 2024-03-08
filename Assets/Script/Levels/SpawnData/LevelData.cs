@@ -17,5 +17,6 @@ namespace Assets.Script.Levels.SpawnData
         public LevelCompletionInfo onComplete;
         public bool denySunProductionPlants;
         public bool invisiGhoul;
+        public bool removeMowers;
     }
 }

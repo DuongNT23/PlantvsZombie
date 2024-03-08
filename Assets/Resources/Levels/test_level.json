@@ -3,24 +3,14 @@
     "startingSun": 1250,
     "noSunDrops": false,
     "background": "Background/Day",
+    "removeMowers": true,
     "waves": [
         {
             "isLargeWave": false,
             "zombies": [
                 {
-                    "type": "door",
-                    "amount": 2,
-                    "row": "random",
-                    "spread": true
-                }
-            ]
-        },
-        {
-            "isLargeWave": false,
-            "zombies": [
-                {
-                    "type": "buckethead",
-                    "amount": 2,
+                    "type": "imp",
+                    "amount": 10,
                     "row": "random",
                     "spread": true
                 }

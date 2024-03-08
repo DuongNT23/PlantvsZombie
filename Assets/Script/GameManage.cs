@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using Assets.Script.Levels.SpawnData;
 using Assets.Script.Save;
 using Assets.Script.Sound;
@@ -27,8 +28,13 @@ namespace Assets.Script
         [SerializeField] private AudioClip _levelHordeMusic;
         [SerializeField] private AudioClip _levelWinClip;
         [SerializeField] private AudioClip _plantAudioClip;
+        [SerializeField] private AudioClip _levelLoseClip;
+        [SerializeField] private AudioClip _eatAudioClip;
+        [SerializeField] private AudioClip _screamClip;
         [SerializeField] private SpriteRenderer backgroundRenderer;
         [SerializeField] private Canvas canvas;
+
+        [SerializeField] private Transitioner transitioner;
 
         //This is for dynamically load plant in
         //TODO Load plants dynamically in from select screen
@@ -70,6 +76,15 @@ namespace Assets.Script
             }
             //InvisiGhoul
             ZombieFactory.Instance.InvisiGhoulMode = levelData.invisiGhoul;
+            //Remove all mowers
+            if (levelData.removeMowers)
+            {
+                var mowers = GameObject.FindObjectsByType<Mower>(FindObjectsSortMode.None);
+                foreach (var mower in mowers)
+                {
+                    Destroy(mower.gameObject);
+                }
+            }
 
             var selections = PlantSelectDataHandler.Instance.PlantSelections;
             if (selections == null || selections.Length == 0)
@@ -179,6 +194,7 @@ namespace Assets.Script
         public void Win()
         {
             Debug.Log("You win!");
+            transitioner.FadeWhite(5);
             //TODO: Replace this with an object to click on to perform the action below.
             SoundManager.Instance.StopMusic();
             SoundManager.Instance.PlaySound(_levelWinClip);
@@ -202,7 +218,7 @@ namespace Assets.Script
                 Debug.LogWarning("No onComplete property.");
             }
             GameStateManager.Instance.DenyPausing();
-            SceneManager.LoadScene("StartScreen");
+            Exit();
         }
 
         public void TurnOnHordeMusic()
@@ -228,5 +244,33 @@ namespace Assets.Script
             }
             isPaused = false;
         }
+
+        public void Lose()
+        {
+            GameStateManager.Instance.DenyPausing();
+            SoundManager.Instance.StopMusic();
+            SoundManager.Instance.PlaySound(_levelLoseClip);
+            transitioner.FadeBlack(0);
+            transitioner.ShowLoseImage(6);
+            Invoke(nameof(No),6);
+            Invoke(nameof(EatBrain),5);
+        }
+
+        private void EatBrain()
+        {
+            SoundManager.Instance.PlaySound(_eatAudioClip);
+        }
+
+        private void No()
+        {
+            SoundManager.Instance.PlaySound(_screamClip);
+            Invoke(nameof(Exit),5);
+        }
+
+        private void Exit()
+        {
+            SceneManager.LoadScene("StartScreen");
+        }
+
     }
 }
