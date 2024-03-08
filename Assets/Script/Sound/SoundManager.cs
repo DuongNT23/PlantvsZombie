@@ -46,7 +46,6 @@ namespace Assets.Script.Sound
         public void PlayMusic(AudioClip clip, float t = 0)
         {
             StopMusic();
-            isUsingMainSource = true;
             if (clip == null)
             {
                 return;
@@ -60,6 +59,9 @@ namespace Assets.Script.Sound
         {
             _musicSource.Stop();
             _musicSource2.Stop();
+            isUsingMainSource = true;
+            _musicSource.volume = 1;
+            _musicSource2.volume = 0;
         }
 
         public void PauseMusic()
